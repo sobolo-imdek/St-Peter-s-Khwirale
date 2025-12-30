@@ -1,7 +1,21 @@
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Academics from "./pages/Academics";
+import CBE from "./pages/CBE";
+import Updates from "./pages/Updates";
+import Contact from "./pages/Contact";
+
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-white text-3xl font-bold flex items-center justify-center">
-      Tailwind v4 is alive
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/academics" element={<Academics />} />
+      <Route path="/cbe" element={<CBE />} />
+      <Route path="/updates" element={<Updates />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  );
 }

@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import Markdown from "../utils/markdown";
+import MainLayout from "../layouts/MainLayout";
 
 export default function Academics() {
-  const [content, setContent] = useState("");
-
-  useEffect(() => {
-    fetch("/content/pages/academics.md")
-      .then((res) => res.text())
-      .then((text) => setContent(text));
-  }, []);
-
   return (
-    <main className="container mx-auto p-6">
-      <Markdown content={content} />
-    </main>
+    <MainLayout>
+      <section className="px-4 py-12 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4">
+          Welcome to St Peter’s Khwirale Secondary School
+        </h2>
+        <p className="text-lg">
+          A public secondary school in Busia County offering both 8-4-4 and CBC
+          curriculum pathways, committed to academic excellence and character
+          formation.
+        </p>
+      </section>
+    </MainLayout>
   );
 }
