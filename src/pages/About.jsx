@@ -1,55 +1,64 @@
 // src/pages/About.jsx
 import MainLayout from "../layouts/MainLayout";
-import { schoolData } from "../data/content";
+import { Link } from "react-router-dom";
+import { navLinks } from "../data/navLinks";
 
 export default function About() {
+  const aboutLink = navLinks.find(link => link.title === "About");
+  const subtopics = aboutLink?.submenu || [];
+
   return (
     <MainLayout>
-      <div className="bg-school-dark min-h-screen text-gray-800">
-
+      <div className="bg-school-background min-h-screen text-gray-800">
         {/* Header */}
-        <section className="bg-school-maroon text-white py-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
-          <p className="text-xl text-school-accent-cream opacity-90 max-w-2xl mx-auto px-4">
-            Building character and intellect for a brighter future.
-          </p>
+        <section className="bg-school-primary text-white py-20 text-center">
+          <div className="max-w-7xl mx-auto px-4">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
+              About St Peter’s Khwirale
+            </h1>
+            <p className="text-xl md:text-2xl text-school-secondary opacity-90 max-w-3xl mx-auto leading-relaxed font-light">
+              Nurturing character, discipline, and academic excellence since 2005.
+            </p>
+          </div>
         </section>
 
-        <div className="max-w-4xl mx-auto px-4 py-16 space-y-20">
-
-          {/* History */}
-          <section>
-            <h2 className="text-3xl font-bold text-school-maroon mb-6 border-b border-gray-300 pb-2">Our History</h2>
-            <p className="text-lg leading-relaxed text-gray-700">
-              {schoolData.about.history}
-            </p>
-          </section>
-
-          {/* Mission & Vision */}
-          <section className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-md hover:border-school-maroon transition-colors">
-              <h3 className="text-2xl font-bold text-school-maroon mb-4">Our Mission</h3>
-              <p className="text-lg italic text-gray-600">"{schoolData.about.mission}"</p>
-            </div>
-            <div className="bg-white p-8 rounded-xl border border-gray-200 shadow-md hover:border-school-maroon transition-colors">
-              <h3 className="text-2xl font-bold text-school-maroon mb-4">Our Vision</h3>
-              <p className="text-lg italic text-gray-600">"{schoolData.about.vision}"</p>
-            </div>
-          </section>
-
-          {/* Core Values */}
-          <section>
-            <h2 className="text-3xl font-bold text-school-maroon mb-8 text-center">Core Values</h2>
-            <div className="flex flex-wrap justify-center gap-4">
-              {schoolData.about.coreValues.map((value, index) => (
-                <span key={index} className="px-6 py-3 bg-white rounded-full text-school-maroon font-semibold shadow-md border border-gray-200 hover:bg-school-maroon hover:text-white transition-colors cursor-default">
-                  {value}
-                </span>
+        {/* Subtopics Directory */}
+        <section className="py-20">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {subtopics.map((topic, index) => (
+                <Link
+                  key={index}
+                  to={topic.path}
+                  className="group bg-white p-8 rounded-2xl shadow-md border-b-4 border-school-secondary hover:border-school-primary hover:-translate-y-2 transition-all"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold text-school-primary group-hover:text-school-primary-light transition-colors">
+                      {topic.title}
+                    </h2>
+                    <span className="text-2xl opacity-0 group-hover:opacity-100 transition-opacity text-school-primary">→</span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed italic">
+                    Explore more about our {topic.title.toLowerCase()} and how it shapes our school community.
+                  </p>
+                </Link>
               ))}
             </div>
-          </section>
+          </div>
+        </section>
 
-        </div>
+        {/* Call to Action */}
+        <section className="py-20 bg-school-primary text-white text-center">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-3xl font-bold mb-6 italic">"Endeavour to Excel"</h2>
+            <p className="text-lg opacity-80 mb-10 leading-relaxed">
+              We are committed to providing a holistic education that prepares our students for global leadership.
+            </p>
+            <Link to="/contact" className="bg-white text-school-primary px-10 py-4 rounded-xl font-bold hover:bg-school-secondary transition-all shadow-xl">
+              Get in Touch
+            </Link>
+          </div>
+        </section>
       </div>
     </MainLayout>
   );

@@ -44,21 +44,34 @@ export default function MobileMenu({ open, onClose }) {
             <div key={link.title} className="flex flex-col">
               {link.submenu ? (
                 <>
-                  <button
-                    onClick={() => toggleSubmenu(link.title)}
-                    className="flex items-center justify-between w-full text-lg font-medium text-gray-900 hover:bg-gray-50 hover:text-school-primary px-3 py-2 rounded-md transition-colors text-left"
-                  >
-                    {link.title}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`h-5 w-5 transition-transform duration-200 text-gray-500 ${expandedMenus[link.title] ? 'rotate-180' : ''}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                  <div className="flex items-center justify-between w-full px-3 py-1 rounded-md hover:bg-gray-50 group">
+                    <NavLink
+                      to={link.path}
+                      onClick={onClose}
+                      className={({ isActive }) =>
+                        `flex-grow text-lg font-medium transition-colors py-2 ${isActive ? "text-school-primary font-bold" : "text-gray-900 group-hover:text-school-primary"
+                        }`
+                      }
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
+                      {link.title}
+                    </NavLink>
+                    <button
+                      onClick={() => toggleSubmenu(link.title)}
+                      className="p-2 ml-2 text-gray-500 hover:text-school-primary focus:outline-none"
+                      aria-expanded={expandedMenus[link.title]}
+                      aria-label={`Toggle ${link.title} submenu`}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={`h-6 w-6 transition-transform duration-200 ${expandedMenus[link.title] ? 'rotate-180' : ''}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  </div>
 
                   {/* Submenu Items */}
                   {expandedMenus[link.title] && (

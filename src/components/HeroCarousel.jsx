@@ -39,7 +39,7 @@ export default function HeroCarousel({
             </div>
 
             {/* Controls */}
-            <div className="absolute inset-0 flex items-center justify-between p-4 transform translate-y-1/2 md:translate-y-0 z-20 pointer-events-none">
+            <div className="absolute inset-0 flex items-center justify-between p-8 z-40 pointer-events-none">
                 {/* Buttons need pointer-events-auto */}
                 <button
                     onClick={prev}
@@ -62,7 +62,7 @@ export default function HeroCarousel({
             </div>
 
             {/* Indicators */}
-            <div className="absolute bottom-6 left-0 right-0 z-20">
+            <div className="absolute bottom-20 left-0 right-0 z-50">
                 <div className="flex items-center justify-center gap-2">
                     {images.map((_, i) => (
                         <button

@@ -8,10 +8,10 @@ export default function Home() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="relative bg-school-primary text-white min-h-[600px] flex items-center overflow-hidden">
+      <section className="relative z-30 bg-school-primary text-white py-16 md:py-20 min-h-[550px] md:min-h-[600px] flex items-center overflow-hidden shadow-lg mb-8">
         <HeroCarousel images={schoolData.hero.images} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+        <div className="relative z-30 max-w-7xl mx-auto px-4 w-full">
           <div className="text-left md:w-1/2">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
               {schoolData.hero.headline}
@@ -24,7 +24,7 @@ export default function Home() {
       </section>
 
       {/* Welcome Section */}
-      <section className="py-16 bg-white">
+      <section className="relative z-10 py-20 bg-white border-t-8 border-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-6">
             Welcome to St Peter's Khwirale Secondary School
@@ -124,10 +124,15 @@ export default function Home() {
               <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-8 border-l-8 border-school-secondary pl-6 leading-relaxed whitespace-pre-line">
                 "{schoolData.principal.message}"
               </blockquote>
-              <Link to="/about" className="inline-flex items-center gap-2 text-white bg-school-primary px-6 py-3 rounded-lg font-semibold hover:bg-school-primary-light transition-colors shadow-md">
-                Read full message
-                <span>→</span>
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/about" className="inline-flex items-center justify-center gap-2 text-white bg-school-primary px-8 py-3 rounded-lg font-semibold hover:bg-school-primary-light transition-all shadow-md hover:scale-105 active:scale-95">
+                  About Us
+                  <span>→</span>
+                </Link>
+                <Link to="/about/history" className="inline-flex items-center justify-center gap-2 text-school-primary border-2 border-school-primary px-8 py-3 rounded-lg font-semibold hover:bg-school-primary hover:text-white transition-all shadow-sm hover:scale-105 active:scale-95">
+                  School History
+                </Link>
+              </div>
             </div>
           </div>
         </div>
