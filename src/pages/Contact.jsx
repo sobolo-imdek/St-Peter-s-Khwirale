@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <MainLayout>
       <div className="bg-school-dark min-h-screen text-gray-800">
-        <section className="bg-school-maroon text-white py-16 text-center">
+        <section className="bg-school-maroon text-white pt-6 pb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-school-accent-cream opacity-90">
             We'd love to hear from you.

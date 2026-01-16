@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 export default function CBE() {
   return (
     <MainLayout>
-      <section className="px-4 py-12 max-w-5xl mx-auto">
+      <section className="px-4 pt-4 pb-8 max-w-5xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">
           Welcome to St Peter’s Khwirale Secondary School
         </h2>

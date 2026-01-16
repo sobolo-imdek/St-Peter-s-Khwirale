@@ -10,27 +10,13 @@ export default function Home() {
     <MainLayout>
       <ScrollToTop />
 
-      {/* Top Quick Links Bar */}
-      <div className="bg-school-primary-dark text-white/80 py-2 border-b border-white/10 hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-[10px] uppercase font-bold tracking-widest">
-          <div className="flex gap-6">
-            <a href="https://education.go.ke" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">Ministry of Education</a>
-            <a href="https://www.knec.ac.ke" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">KNEC Portal</a>
-            <a href="https://www.tsc.go.ke" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">TSC Kenya</a>
-            <a href="https://kuccps.net" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">KUCCPS</a>
-          </div>
-          <div className="flex gap-4">
-            <span>📞 +254 700 000 000</span>
-            <span>✉️ info@stpeterkhwirale.sc.ke</span>
-          </div>
-        </div>
-      </div>
+      <ScrollToTop />
 
       {/* Hero Section */}
-      <section className="relative z-30 bg-school-primary text-white py-16 md:py-20 min-h-[550px] md:min-h-[600px] flex items-center overflow-hidden shadow-lg mb-8">
+      <section className="relative z-30 bg-school-primary text-white pb-16 md:pb-20 min-h-[400px] md:min-h-[450px] overflow-hidden">
         <HeroCarousel images={schoolData.hero.images} />
 
-        <div className="relative z-30 max-w-7xl mx-auto px-4 w-full">
+        <div className="relative z-30 max-w-7xl mx-auto px-4 w-full h-full flex items-center">
           <div className="text-left md:w-1/2">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
               {schoolData.hero.headline}
@@ -43,7 +29,7 @@ export default function Home() {
       </section>
 
       {/* Welcome Section */}
-      <section className="relative z-10 py-20 bg-white border-t-8 border-white">
+      <section className="relative z-10 py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-6">
             Welcome to St Peter's Khwirale Secondary School

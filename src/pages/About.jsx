@@ -39,7 +39,7 @@ export default function About() {
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
         <section
-          className="relative bg-school-primary text-white py-32 text-center overflow-hidden"
+          className="relative bg-school-primary text-white pt-6 pb-16 text-center overflow-hidden"
           style={{
             backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/about-hero.jpg")',
             backgroundSize: 'cover',

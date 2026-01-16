@@ -6,7 +6,7 @@ export default function Academics() {
   return (
     <MainLayout>
       <div className="bg-school-dark min-h-screen text-gray-800">
-        <section className="bg-white py-16 text-center border-b border-gray-200">
+        <section className="bg-white pt-6 pb-12 text-center border-b border-gray-200">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-school-maroon">Academic Excellence</h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Providing diverse pathways for every learner.
