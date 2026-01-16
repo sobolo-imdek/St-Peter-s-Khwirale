@@ -3,10 +3,29 @@ import MainLayout from "../layouts/MainLayout";
 import HeroCarousel from "../components/HeroCarousel";
 import { schoolData } from "../data/content";
 import { Link } from "react-router-dom";
+import ScrollToTop from "../components/ScrollToTop"; // Assuming ScrollToTop is a component
 
 export default function Home() {
   return (
     <MainLayout>
+      <ScrollToTop />
+
+      {/* Top Quick Links Bar */}
+      <div className="bg-school-primary-dark text-white/80 py-2 border-b border-white/10 hidden md:block">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-[10px] uppercase font-bold tracking-widest">
+          <div className="flex gap-6">
+            <a href="https://education.go.ke" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">Ministry of Education</a>
+            <a href="https://www.knec.ac.ke" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">KNEC Portal</a>
+            <a href="https://www.tsc.go.ke" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">TSC Kenya</a>
+            <a href="https://kuccps.net" target="_blank" rel="noopener noreferrer" className="hover:text-school-secondary transition-colors">KUCCPS</a>
+          </div>
+          <div className="flex gap-4">
+            <span>📞 +254 700 000 000</span>
+            <span>✉️ info@stpeterkhwirale.sc.ke</span>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative z-30 bg-school-primary text-white py-16 md:py-20 min-h-[550px] md:min-h-[600px] flex items-center overflow-hidden shadow-lg mb-8">
         <HeroCarousel images={schoolData.hero.images} />
@@ -132,6 +151,319 @@ export default function Home() {
                 <Link to="/about/history" className="inline-flex items-center justify-center gap-2 text-school-primary border-2 border-school-primary px-8 py-3 rounded-lg font-semibold hover:bg-school-primary hover:text-white transition-all shadow-sm hover:scale-105 active:scale-95">
                   School History
                 </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Explore More Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-4">
+            Explore more about our school
+          </h2>
+          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            Discover our rich history, academic programs, extracurricular activities, and vibrant school life.
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Link
+              to="/academics/departments"
+              className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
+            >
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">📚</div>
+              <h3 className="text-xl font-bold mb-2 text-school-primary">Our Departments</h3>
+              <p className="text-sm text-gray-500">Explore our diverse academic departments and focused learning areas.</p>
+            </Link>
+
+            <Link
+              to="/admissions/fees"
+              className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
+            >
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">💳</div>
+              <h3 className="text-xl font-bold mb-2 text-school-primary">Fee Structure</h3>
+              <p className="text-sm text-gray-500">Detailed information about school fees and flexible payment methods.</p>
+            </Link>
+
+            <Link
+              to="/academics/results"
+              className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
+            >
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">🏆</div>
+              <h3 className="text-xl font-bold mb-2 text-school-primary">KCSE Results</h3>
+              <p className="text-sm text-gray-500">Celebrating our academic excellence and consistent top performers.</p>
+            </Link>
+
+            <Link
+              to="/events"
+              className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
+            >
+              <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">📅</div>
+              <h3 className="text-xl font-bold mb-2 text-school-primary">Upcoming Events</h3>
+              <p className="text-sm text-gray-500">Stay updated with our school calendar and upcoming social activities.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+      {/* School Gallery Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-12">
+            A glimpse into our school
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {schoolData.hero.images.slice(0, 3).map((img, index) => (
+              <div key={index} className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+                <img
+                  src={img}
+                  alt={`School gallery ${index + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+
+          <Link
+            to="/gallery"
+            className="inline-flex items-center gap-2 bg-school-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-school-primary-light transition-all shadow-lg hover:scale-105"
+          >
+            View Full Gallery
+            <span>→</span>
+          </Link>
+        </div>
+      </section>
+      {/* News & Updates Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-4">
+                School News & Education Updates
+              </h2>
+              <p className="text-lg text-gray-600 max-w-2xl">
+                Stay informed with the latest happenings, academic milestones, and educational announcements from St Peter's Khwirale.
+              </p>
+            </div>
+            <Link to="/updates" className="text-school-primary font-bold hover:text-school-secondary transition-colors flex items-center gap-2 mb-2">
+              All Updates <span>→</span>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* News Card 1 */}
+            <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
+              <div className="aspect-video relative overflow-hidden">
+                <img
+                  src="/images/hero/hero2.jpg"
+                  alt="KCSE Prep"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-school-secondary text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  Academic
+                </div>
+              </div>
+              <div className="p-6">
+                <time className="text-sm text-gray-500 mb-2 block font-medium">January 15, 2025</time>
+                <h3 className="text-xl font-bold text-school-primary mb-3 group-hover:text-school-secondary transition-colors">
+                  Preparation for 2025 KCSE Exams Commences
+                </h3>
+                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                  Our candidates have officially begun their intensive revision bootcamps. The faculty is committed to ensuring every student reaches their target.
+                </p>
+                <Link to="/updates" className="text-school-primary font-bold text-sm flex items-center gap-1 group/link">
+                  Read More <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
+            </article>
+
+            {/* News Card 2 */}
+            <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
+              <div className="aspect-video relative overflow-hidden">
+                <img
+                  src="/images/hero/hero1.jpg"
+                  alt="Boarding Facilities"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-school-secondary text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  Infrastructure
+                </div>
+              </div>
+              <div className="p-6">
+                <time className="text-sm text-gray-500 mb-2 block font-medium">January 10, 2025</time>
+                <h3 className="text-xl font-bold text-school-primary mb-3 group-hover:text-school-secondary transition-colors">
+                  New Science Laboratory Commissioned
+                </h3>
+                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                  We are proud to announce the completion of our state-of-the-art physics laboratory, equipped to handle the new CBE curriculum requirements.
+                </p>
+                <Link to="/updates" className="text-school-primary font-bold text-sm flex items-center gap-1 group/link">
+                  Read More <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
+            </article>
+
+            {/* News Card 3 */}
+            <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
+              <div className="aspect-video relative overflow-hidden">
+                <img
+                  src="/images/hero/hero3.jpg"
+                  alt="Sports Day"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-school-secondary text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  Student Life
+                </div>
+              </div>
+              <div className="p-6">
+                <time className="text-sm text-gray-500 mb-2 block font-medium">December 20, 2024</time>
+                <h3 className="text-xl font-bold text-school-primary mb-3 group-hover:text-school-secondary transition-colors">
+                  Annual Inter-House Sports Extravaganza
+                </h3>
+                <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                  A look back at the thrilling competitions and sportsmanship displayed during our end-of-year sports festival. Congratulations to Simba House!
+                </p>
+                <Link to="/updates" className="text-school-primary font-bold text-sm flex items-center gap-1 group/link">
+                  Read More <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                </Link>
+              </div>
+            </article>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link
+              to="/updates"
+              className="inline-flex items-center gap-2 bg-school-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-school-primary-light transition-all shadow-lg hover:scale-105"
+            >
+              View All News
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg text-gray-600 mb-12">
+            Find quick answers about admissions, fees, school life, and more.
+          </p>
+
+          <div className="text-left space-y-4 mb-12">
+            {[
+              {
+                q: "How do I apply for grade 10 placement in 2027?",
+                a: "You can view our admission criteria, required documents and online application steps on our Admissions page.",
+                link: "/admissions"
+              },
+              {
+                q: "Which pathways and elective tracks are available under the CBC?",
+                a: "Explore the full list of Competency‑Based Curriculum pathways, CBC project requirements and subject combinations on our CBE Explainer page.",
+                link: "/cbe/pathways"
+              },
+              {
+                q: "What is the 2027 fee structure and how can I pay?",
+                a: "See a detailed breakdown of tuition, boarding and development levies, plus M‑Pesa and bank transfer options on our Fees page.",
+                link: "/admissions/fees"
+              },
+              {
+                q: "How did our students perform in the 2025 KCSE exams?",
+                a: "Review the 2024 KCSE overall performance, subject averages and past years’ trends on our KCSE Results page.",
+                link: "/academics/results"
+              },
+              {
+                q: "What clubs, sports teams and extracurricular activities do you offer?",
+                a: "Find out about our debate, STEM, drama clubs and sports teams (football, athletics, etc.) on the Student Life page.",
+                link: "/student-life"
+              }
+            ].map((faq, index) => (
+              <details key={index} className="group bg-gray-50 rounded-2xl border border-gray-100 p-0 transition-all duration-300 open:bg-school-primary open:shadow-xl overflow-hidden">
+                <summary className="flex justify-between items-center p-6 font-bold text-lg text-school-primary group-open:text-white cursor-pointer list-none">
+                  <div className="flex items-center gap-4">
+                    <span className="text-school-secondary group-open:text-school-secondary-light font-black text-2xl opacity-50">
+                      {(index + 1).toString().padStart(2, '0')}
+                    </span>
+                    <span className="leading-tight">{faq.q}</span>
+                  </div>
+                  <span className="text-black group-open:text-white text-2xl transition-transform duration-300 group-open:rotate-180 font-black">
+                    ↓
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 space-y-4 animate-fadeIn">
+                  <p className="text-gray-600 group-open:text-white/90 leading-relaxed italic border-l-4 border-school-secondary group-open:border-white/30 pl-4 bg-white/5 p-4 rounded-lg">
+                    {faq.a}
+                  </p>
+                  <div className="pt-2">
+                    <Link
+                      to={faq.link}
+                      className="inline-flex items-center gap-2 bg-school-secondary text-school-primary px-6 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all shadow-md group-open:shadow-none"
+                    >
+                      Visit Page <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+
+          <div className="bg-school-background p-8 rounded-3xl border border-gray-100">
+            <p className="text-gray-700 mb-6 font-medium">
+              Didn't find what you're looking for? Visit our full FAQ section for more information.
+            </p>
+            <Link
+              to="/about#overview"
+              className="inline-flex items-center gap-2 bg-school-primary text-white px-10 py-4 rounded-xl font-bold hover:bg-school-primary-light transition-all shadow-lg hover:scale-105"
+            >
+              View All Questions
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+      {/* Partners Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-12">
+            Our Partners
+          </h2>
+          <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="flex flex-wrap md:flex-nowrap justify-around items-center py-12 px-8 gap-12">
+              <div className="h-48 flex items-center justify-center p-2">
+                <img
+                  src="/images/partners/moe.png"
+                  alt="Ministry of Education"
+                  className="h-full w-auto object-contain"
+                  onError={(e) => { e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Coat_of_arms_of_Kenya_%28Official%29.svg/200px-Coat_of_arms_of_Kenya_%28Official%29.svg.png"; }}
+                />
+              </div>
+
+              <div className="h-48 flex items-center justify-center p-2">
+                <img
+                  src="/images/partners/knec.png"
+                  alt="KNEC"
+                  className="h-full w-auto object-contain"
+                  onError={(e) => { e.target.src = "https://www.knec.ac.ke/wp-content/uploads/2021/07/knec-logo.png"; }}
+                />
+              </div>
+
+              <div className="h-48 flex items-center justify-center p-2">
+                <img
+                  src="/images/partners/tsc.png"
+                  alt="TSC Logo"
+                  className="h-full w-auto object-contain"
+                  onError={(e) => { e.target.src = "https://www.tsc.go.ke/images/logo.png"; }}
+                />
+              </div>
+
+              <div className="h-48 flex items-center justify-center p-2">
+                <img
+                  src="/images/partners/kicd.png"
+                  alt="KICD"
+                  className="h-full w-auto object-contain"
+                  onError={(e) => { e.target.src = "https://kicd.ac.ke/wp-content/uploads/2017/10/kicd-logo.png"; }}
+                />
               </div>
             </div>
           </div>

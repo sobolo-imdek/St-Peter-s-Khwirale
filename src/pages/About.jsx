@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
@@ -15,18 +14,6 @@ const sections = [
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("overview");
-
-  const { hash } = useLocation();
-
-  // Scroll to hash on load or hash change
-  useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [hash]);
 
   // Handle active section on scroll
   useEffect(() => {
@@ -51,12 +38,19 @@ export default function About() {
     <MainLayout>
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
-        <section className="bg-school-primary text-white py-24 text-center">
-          <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
+        <section
+          className="relative bg-school-primary text-white py-32 text-center overflow-hidden"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/about-hero.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-4 relative z-10">
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
               About St Peter’s Khwirale
             </h1>
-            <p className="text-xl md:text-2xl text-school-secondary opacity-90 max-w-3xl mx-auto leading-relaxed font-light">
+            <p className="text-xl md:text-2xl text-school-secondary opacity-100 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-md">
               A comprehensive guide to our heritage, values, and community commitment.
             </p>
           </div>
@@ -108,20 +102,60 @@ export default function About() {
                   </div>
                   <h3 className="text-2xl font-bold text-school-primary mt-12 mb-6">Frequently Asked Questions</h3>
                   <div className="space-y-4">
-                    <details className="group border-b border-gray-100 pb-4">
-                      <summary className="font-bold cursor-pointer list-none flex justify-between items-center group-open:text-school-primary transition-colors">
-                        What are the school's core values?
-                        <span className="group-open:rotate-180 transition-transform">↓</span>
-                      </summary>
-                      <p className="mt-4 text-gray-500">Our foundation is built on Discipline, Integrity, Hard Work, and the Fear of God. These values guide every decision and interaction within our community.</p>
-                    </details>
-                    <details className="group border-b border-gray-100 pb-4">
-                      <summary className="font-bold cursor-pointer list-none flex justify-between items-center group-open:text-school-primary transition-colors">
-                        Does the school offer boarding facilities?
-                        <span className="group-open:rotate-180 transition-transform">↓</span>
-                      </summary>
-                      <p className="mt-4 text-gray-500">Yes, we provide modern boarding facilities for both boys and girls, ensuring a safe and conducive environment for study and personal growth.</p>
-                    </details>
+                    {[
+                      {
+                        q: "How do I apply for grade 10 placement in 2027?",
+                        a: "You can view our admission criteria, required documents and online application steps on our Admissions page.",
+                        link: "/admissions"
+                      },
+                      {
+                        q: "Which pathways and elective tracks are available under the CBC?",
+                        a: "Explore the full list of Competency‑Based Curriculum pathways, CBC project requirements and subject combinations on our CBE Explainer page.",
+                        link: "/cbe/pathways"
+                      },
+                      {
+                        q: "What is the 2027 fee structure and how can I pay?",
+                        a: "See a detailed breakdown of tuition, boarding and development levies, plus M‑Pesa and bank transfer options on our Fees page.",
+                        link: "/admissions/fees"
+                      },
+                      {
+                        q: "How did our students perform in the 2025 KCSE exams?",
+                        a: "Review the 2024 KCSE overall performance, subject averages and past years’ trends on our KCSE Results page.",
+                        link: "/academics/results"
+                      },
+                      {
+                        q: "What clubs, sports teams and extracurricular activities do you offer?",
+                        a: "Find out about our debate, STEM, drama clubs and sports teams (football, athletics, etc.) on the Student Life page.",
+                        link: "/student-life"
+                      }
+                    ].map((faq, index) => (
+                      <details key={index} className="group bg-gray-50 rounded-2xl border border-gray-100 p-0 transition-all duration-300 open:bg-school-primary open:shadow-xl overflow-hidden">
+                        <summary className="flex justify-between items-center p-6 font-bold text-lg text-school-primary group-open:text-white cursor-pointer list-none">
+                          <div className="flex items-center gap-4">
+                            <span className="text-school-secondary group-open:text-school-secondary-light font-black text-2xl opacity-50">
+                              {(index + 1).toString().padStart(2, '0')}
+                            </span>
+                            <span className="leading-tight">{faq.q}</span>
+                          </div>
+                          <span className="text-black group-open:text-white text-2xl transition-transform duration-300 group-open:rotate-180 font-black">
+                            ↓
+                          </span>
+                        </summary>
+                        <div className="px-6 pb-6 space-y-4">
+                          <p className="text-gray-600 group-open:text-white/90 leading-relaxed italic border-l-4 border-school-secondary group-open:border-white/30 pl-4 bg-white/5 p-4 rounded-lg">
+                            {faq.a}
+                          </p>
+                          <div className="pt-2">
+                            <Link
+                              to={faq.link}
+                              className="inline-flex items-center gap-2 bg-school-secondary text-school-primary px-6 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all shadow-md group-open:shadow-none no-underline"
+                            >
+                              Visit Page <span>→</span>
+                            </Link>
+                          </div>
+                        </div>
+                      </details>
+                    ))}
                   </div>
                 </div>
               </div>
