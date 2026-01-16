@@ -43,19 +43,19 @@ export default function HeroCarousel({
                 {/* Buttons need pointer-events-auto */}
                 <button
                     onClick={prev}
-                    className="pointer-events-auto p-2 rounded-full shadow-lg bg-white/20 text-white hover:bg-white/40 backdrop-blur-sm transition-all sm:p-3 hover:scale-110"
+                    className="pointer-events-auto p-2 text-white/50 hover:text-white transition-all sm:p-3 hover:scale-110"
                     aria-label="Previous Slide"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                     </svg>
                 </button>
                 <button
                     onClick={next}
-                    className="pointer-events-auto p-2 rounded-full shadow-lg bg-white/20 text-white hover:bg-white/40 backdrop-blur-sm transition-all sm:p-3 hover:scale-110"
+                    className="pointer-events-auto p-2 text-white/50 hover:text-white transition-all sm:p-3 hover:scale-110"
                     aria-label="Next Slide"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8 md:w-10 md:h-10">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </button>
