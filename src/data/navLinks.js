@@ -8,12 +8,12 @@ export const navLinks = [
         title: "About",
         path: "/about",
         submenu: [
-            { title: "Overview & FAQs", path: "/about/overview" },
-            { title: "School History", path: "/about/history" },
-            { title: "BOM & PA", path: "/about/bom-pa" },
-            { title: "Service Charter", path: "/about/service-charter" },
-            { title: "School Gallery", path: "/gallery" },
-            { title: "Alumni Community", path: "/alumni" },
+            { title: "Overview & FAQs", path: "/about#overview" },
+            { title: "School History", path: "/about#history" },
+            { title: "BOM & PA", path: "/about#bom-pa" },
+            { title: "Service Charter", path: "/about#service-charter" },
+            { title: "School Gallery", path: "/about#gallery" },
+            { title: "Alumni Community", path: "/about#alumni" },
         ]
     },
     {
