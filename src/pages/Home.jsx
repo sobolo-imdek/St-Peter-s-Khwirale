@@ -117,6 +117,7 @@ export default function Home() {
                   src={schoolData.principal.image}
                   alt={schoolData.principal.name}
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-school-primary/90 p-6 backdrop-blur-sm">
                   <p className="text-white font-bold text-lg">{schoolData.principal.name}</p>
@@ -205,6 +206,7 @@ export default function Home() {
                   src={img}
                   alt={`School gallery ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -421,6 +423,7 @@ export default function Home() {
                   src="/images/partners/moe.png"
                   alt="Ministry of Education"
                   className="h-full w-auto object-contain"
+                  loading="lazy"
                   onError={(e) => { e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Coat_of_arms_of_Kenya_%28Official%29.svg/200px-Coat_of_arms_of_Kenya_%28Official%29.svg.png"; }}
                 />
               </div>

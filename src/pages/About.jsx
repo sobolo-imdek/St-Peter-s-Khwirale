@@ -271,13 +271,13 @@ export default function About() {
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity">
-                    <img src="/images/hero/hero1.jpg" alt="Gallery 1" className="w-full h-full object-cover" />
+                    <img src="/images/hero/hero1.jpg" alt="Gallery 1" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity">
-                    <img src="/images/hero/hero2.jpg" alt="Gallery 2" className="w-full h-full object-cover" />
+                    <img src="/images/hero/hero2.jpg" alt="Gallery 2" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity">
-                    <img src="/images/hero/hero3.jpg" alt="Gallery 3" className="w-full h-full object-cover" />
+                    <img src="/images/hero/hero3.jpg" alt="Gallery 3" className="w-full h-full object-cover" loading="lazy" />
                   </div>
                   <div className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200">
                     <span className="text-gray-400 font-medium">+100 More</span>

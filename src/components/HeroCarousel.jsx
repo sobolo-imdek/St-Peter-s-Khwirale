@@ -31,6 +31,7 @@ export default function HeroCarousel({
                             src={img}
                             alt={`Hero ${i + 1}`}
                             className="w-full h-full object-cover"
+                            loading={i === 0 ? "eager" : "lazy"}
                         />
                         {/* Dark overlay for text readability */}
                         <div className="absolute inset-0 bg-black/50" />
