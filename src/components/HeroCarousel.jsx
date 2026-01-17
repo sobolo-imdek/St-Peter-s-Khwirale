@@ -33,8 +33,8 @@ export default function HeroCarousel({
                             className="w-full h-full object-cover"
                             loading={i === 0 ? "eager" : "lazy"}
                         />
-                        {/* Dark overlay for text readability */}
-                        <div className="absolute inset-0 bg-black/50" />
+                        {/* Cinematic gradient overlay for text readability */}
+                        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                     </div>
                 ))}
             </div>

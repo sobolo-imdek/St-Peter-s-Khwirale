@@ -12,7 +12,7 @@ export const navLinks = [
             { title: "School History", path: "/about#history" },
             { title: "BOM & PA", path: "/about#bom-pa" },
             { title: "Service Charter", path: "/about#service-charter" },
-            { title: "School Gallery", path: "/about#gallery" },
+            { title: "School Gallery", path: "/gallery" },
             { title: "Alumni Community", path: "/about#alumni" },
         ]
     },
@@ -20,34 +20,34 @@ export const navLinks = [
         title: "Academics",
         path: "/academics",
         submenu: [
-            { title: "Departments Overview", path: "/academics/departments" },
-            { title: "Our Teachers", path: "/academics/teachers" },
-            { title: "KCSE Results", path: "/academics/results" },
-            { title: "KCSE Timetable 2025", path: "/academics/timetable" },
+            { title: "Curriculum Overview", path: "/academics#curriculum" },
+            { title: "Departments Overview", path: "/academics#departments" },
+            { title: "Faculty & Teachers", path: "/academics#faculty" },
+            { title: "Performance & Results", path: "/academics#results" },
         ]
     },
     {
         title: "CBE",
         path: "/cbe",
         submenu: [
-            { title: "Pathways Offered", path: "/cbe/pathways" },
-            { title: "Admissions & Process", path: "/admissions" },
-            { title: "Fee Structure", path: "/admissions/fees" },
-            { title: "Student Life", path: "/student-life" },
+            { title: "Pathways & Learning", path: "/cbe#pathways" },
+            { title: "Admissions Process", path: "/cbe#admissions" },
+            { title: "Fee Structure", path: "/cbe#fees" },
+            { title: "Student Life & Welfare", path: "/cbe#student-life" },
         ]
     },
     {
         title: "Updates",
         path: "/updates",
         submenu: [
-            { title: "Upcoming Events", path: "/events" },
-            { title: "News & Articles", path: "/news" },
-            { title: "Tenders", path: "/tenders" },
-            { title: "Job Vacancies", path: "/careers" },
+            { title: "Upcoming Events", path: "/updates#events" },
+            { title: "News & Articles", path: "/updates#news" },
+            { title: "Tenders & Public Notices", path: "/updates#tenders" },
+            { title: "Job Vacancies", path: "/updates#careers" },
         ]
     },
     {
-        title: "Contact",
+        title: "Contact Us",
         path: "/contact"
     }
 ];

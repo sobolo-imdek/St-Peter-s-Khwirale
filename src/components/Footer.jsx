@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="space-y-6">
           <div>
             <h3 className="text-xl font-extrabold text-school-secondary mb-6 border-b border-school-secondary/30 pb-2">
-              St Peter's Khwirale Secondary School
+              St Peter's Khwirale Senior School
             </h3>
             <p className="text-white/80 font-bold text-sm italic italic">
               "Excellence in Spirit & Academic Truth"
@@ -84,6 +84,22 @@ export default function Footer() {
               {schoolData.contact.email}
             </li>
           </ul>
+
+          {/* Social Media */}
+          <div className="mt-8">
+            <h4 className="text-school-secondary font-black uppercase text-[10px] tracking-[0.2em] mb-4">Follow Us</h4>
+            <a
+              href={schoolData.socials.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#1877F2] hover:bg-[#0d65d9] text-white px-4 py-2 rounded-lg transition-all hover:scale-105 shadow-lg"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              <span className="font-bold text-sm">Facebook</span>
+            </a>
+          </div>
         </div>
       </div>
 

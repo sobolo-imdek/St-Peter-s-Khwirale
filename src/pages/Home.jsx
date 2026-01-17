@@ -13,15 +13,15 @@ export default function Home() {
       <ScrollToTop />
 
       {/* Hero Section */}
-      <section className="relative z-30 bg-school-primary text-white pb-16 md:pb-20 min-h-[400px] md:min-h-[450px] overflow-hidden">
+      <section className="relative z-30 bg-school-primary text-white pb-16 md:pb-20 min-h-[600px] md:min-h-[700px] overflow-hidden">
         <HeroCarousel images={schoolData.hero.images} />
 
-        <div className="relative z-30 max-w-7xl mx-auto px-4 w-full h-full flex items-center">
+        <div className="absolute inset-x-0 bottom-0 z-30 max-w-7xl mx-auto px-4 pt-16 pb-40 md:pb-56 flex items-end">
           <div className="text-left md:w-1/2">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
               {schoolData.hero.headline}
             </h1>
-            <p className="text-lg md:text-2xl text-school-secondary mb-10 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl leading-relaxed font-light drop-shadow-md" style={{ color: '#F5F5DC' }}>
               {schoolData.hero.subheadline}
             </p>
           </div>
@@ -32,10 +32,10 @@ export default function Home() {
       <section className="relative z-10 py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-6">
-            Welcome to St Peter's Khwirale Secondary School
+            Welcome to St Peter's Khwirale Senior School
           </h2>
           <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            A public Mixed secondary school categorized as C4 under the new Competency-Based Education (CBE) curriculum. We are dedicated to empowering our students through quality education, discipline, and integrity, while providing a safe and supportive environment where every child can discover their potential and thrive.
+            A public Mixed Senior School categorized as C4 under the new Competency-Based Education (CBE) curriculum. We are dedicated to empowering our students through quality education, discipline, and integrity, while providing a safe and supportive environment where every child can discover their potential and thrive.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
             Browse through our website to learn more about us, from our academic programs and vibrant student life to our achievements and community engagement.
@@ -116,7 +116,7 @@ export default function Home() {
                 <img
                   src={schoolData.principal.image}
                   alt={schoolData.principal.name}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-top"
                   loading="lazy"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-school-primary/90 p-6 backdrop-blur-sm">
@@ -200,11 +200,11 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {schoolData.hero.images.slice(0, 3).map((img, index) => (
-              <div key={index} className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group">
+            {schoolData.gallery.slice(0, 3).map((img, index) => (
+              <div key={index} className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group cursor-pointer">
                 <img
                   src={img}
-                  alt={`School gallery ${index + 1}`}
+                  alt={`School gallery preview ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />

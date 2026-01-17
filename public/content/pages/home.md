@@ -1,8 +1,8 @@
 ---
-title: Contact St Peter's Khwirale
+title: Contact St Peter's Khwirale Senior School
 ---
 
-You can reach St Peter's Khwirale Secondary School via the following channels:
+You can reach St Peter's Khwirale Senior School via the following channels:
 
 - **Phone:** +254 700 000 000
 - **Email:** info@stpeterskhwirale.ac.ke

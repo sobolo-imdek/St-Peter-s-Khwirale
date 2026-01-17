@@ -9,6 +9,7 @@ const Academics = lazy(() => import("./pages/Academics"));
 const CBE = lazy(() => import("./pages/CBE"));
 const Updates = lazy(() => import("./pages/Updates"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Gallery = lazy(() => import("./pages/Gallery"));
 
 // Simple loading fallback
 const PageLoader = () => (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/cbe" element={<CBE />} />
           <Route path="/updates" element={<Updates />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </Suspense>
     </>

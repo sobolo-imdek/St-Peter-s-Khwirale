@@ -48,9 +48,9 @@ export default function About() {
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
-              About St Peter’s Khwirale
+              About St Peter’s Khwirale Senior School
             </h1>
-            <p className="text-xl md:text-2xl text-school-secondary opacity-100 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-md">
+            <p className="text-xl md:text-2xl opacity-100 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
               A comprehensive guide to our heritage, values, and community commitment.
             </p>
           </div>
@@ -87,7 +87,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2">Overview & FAQs</h2>
                 <div className="prose prose-lg text-gray-600 max-w-none space-y-6">
                   <p>
-                    St Peter’s Khwirale Secondary School is a premier mixed day and boarding school located in the heart of Busia County.
+                    St Peter’s Khwirale Senior School is a premier mixed day and boarding school located in the heart of Busia County.
                     Since its inception, the school has been a beacon of academic excellence and character formation for students across the region.
                   </p>
                   <div className="grid md:grid-cols-2 gap-8 my-10">
@@ -270,18 +270,14 @@ export default function About() {
                   </Link>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity">
-                    <img src="/images/hero/hero1.jpg" alt="Gallery 1" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                  <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity">
-                    <img src="/images/hero/hero2.jpg" alt="Gallery 2" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                  <div className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity">
-                    <img src="/images/hero/hero3.jpg" alt="Gallery 3" className="w-full h-full object-cover" loading="lazy" />
-                  </div>
-                  <div className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200">
-                    <span className="text-gray-400 font-medium">+100 More</span>
-                  </div>
+                  {schoolData.gallery.slice(3, 10).map((img, index) => (
+                    <div key={index} className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity cursor-pointer">
+                      <img src={img} alt={`Gallery preview ${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  ))}
+                  <Link to="/gallery" className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 hover:bg-gray-50 transition-colors">
+                    <span className="text-gray-400 font-medium">+{schoolData.gallery.length - 7} More</span>
+                  </Link>
                 </div>
               </div>
             </section>
@@ -297,7 +293,7 @@ export default function About() {
                     Our alumni are our greatest pride. Spread across the globe in various sectors — from medicine and engineering to arts and entrepreneurship — they continue to carry the "Endeavour to Excel" spirit.
                   </p>
                   <p>
-                    The St Peter's Khwirale Alumni Association works to support current students through mentorship programs, scholarships, and infrastructure development.
+                    The St Peter's Khwirale Senior School Alumni Association works to support current students through mentorship programs, scholarships, and infrastructure development.
                     Join our network to give back and connect with former schoolmates.
                   </p>
                   <div className="mt-8">
