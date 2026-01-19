@@ -19,8 +19,8 @@ export default function Home() {
       <section className="relative z-30 bg-school-primary text-white pb-6 md:pb-20 min-h-[380px] md:min-h-[700px] overflow-hidden">
         <HeroCarousel images={schoolData.hero.images} />
 
-        <div className="absolute inset-0 z-30 max-w-7xl mx-auto px-4 flex items-center justify-center">
-          <div className="text-center max-w-4xl">
+        <div className="absolute z-30 max-w-7xl mx-auto px-4 flex flex-col inset-0 items-center justify-center md:justify-end md:items-start md:pb-56">
+          <div className="text-center md:text-left max-w-4xl md:w-1/2">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-lg">
               {schoolData.hero.headline}
             </h1>
@@ -206,8 +206,8 @@ export default function Home() {
             {[0, 5, 10].map((idx) => schoolData.gallery[idx]).map((img, index) => (
               <div key={index} className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group cursor-pointer">
                 <img
-                  src={img}
-                  alt={`School gallery preview ${index + 1}`}
+                  src={typeof img === 'string' ? img : img.src}
+                  alt={typeof img === 'string' ? `School gallery preview ${index + 1}` : img.alt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />

@@ -28,8 +28,8 @@ export default function HeroCarousel({
                 {images.map((img, i) => (
                     <div key={i} className="min-w-full h-full relative">
                         <img
-                            src={img}
-                            alt={`Hero ${i + 1}`}
+                            src={typeof img === 'string' ? img : img.src}
+                            alt={typeof img === 'string' ? `Hero ${i + 1}` : img.alt}
                             className="w-full h-full object-cover object-[center_35%]"
                             loading={i === 0 ? "eager" : "lazy"}
                         />

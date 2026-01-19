@@ -279,7 +279,7 @@ export default function About() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {schoolData.gallery.slice(3, 10).map((img, index) => (
                     <div key={index} className="aspect-square bg-gray-100 rounded-2xl overflow-hidden hover:opacity-90 transition-opacity cursor-pointer">
-                      <img src={img} alt={`Gallery preview ${index + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                      <img src={typeof img === 'string' ? img : img.src} alt={typeof img === 'string' ? `Gallery preview ${index + 1}` : img.alt} className="w-full h-full object-cover" loading="lazy" />
                     </div>
                   ))}
                   <Link to="/gallery" className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 hover:bg-gray-50 transition-colors">

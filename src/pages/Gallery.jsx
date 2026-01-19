@@ -18,8 +18,8 @@ export default function Gallery() {
                                 onClick={() => setSelectedImage(img)}
                             >
                                 <img
-                                    src={img}
-                                    alt={`Gallery image ${index + 1}`}
+                                    src={typeof img === 'string' ? img : img.src}
+                                    alt={typeof img === 'string' ? `Gallery image ${index + 1}` : img.alt}
                                     className="w-full h-full object-cover"
                                     loading="lazy"
                                 />
@@ -42,8 +42,8 @@ export default function Gallery() {
                         </button>
                         <div className="relative max-w-full max-h-full">
                             <img
-                                src={selectedImage}
-                                alt="Enlarged view"
+                                src={typeof selectedImage === 'string' ? selectedImage : selectedImage.src}
+                                alt={typeof selectedImage === 'string' ? "Enlarged view" : selectedImage.alt || "Enlarged view"}
                                 className="max-w-full max-h-[85vh] md:max-h-[90vh] object-contain rounded-lg shadow-2xl"
                             />
                         </div>
