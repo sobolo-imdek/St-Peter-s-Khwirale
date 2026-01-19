@@ -1,16 +1,21 @@
 // src/pages/Contact.jsx
 import MainLayout from "../layouts/MainLayout";
 import { schoolData } from "../data/content";
+import SEO from "../components/SEO";
 
 export default function Contact() {
   return (
     <MainLayout>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with St Peter's Khwirale Senior School for admissions, inquiries, or any questions."
+      />
       <div className="bg-school-background min-h-screen text-gray-800">
         {/* Hero Section */}
         <section
           className="relative bg-school-primary text-white pt-16 pb-32 text-center overflow-hidden"
           style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/images/gallery/DSC_0127.JPG")',
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/images/gallery/DSC_0127.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center 35%',
           }}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
+import SEO from "../components/SEO";
 
 const sections = [
   { id: "events", title: "Upcoming Events" },
@@ -13,42 +14,56 @@ const sections = [
 export default function Updates() {
   const [activeTab, setActiveTab] = useState("events");
 
-  // Handle active section on scroll
+  // Handle active section on scroll with throttling
   useEffect(() => {
+    let timeoutId = null;
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
-      for (const section of sections) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveTab(section.id);
-            break;
+      if (timeoutId) return;
+
+      timeoutId = setTimeout(() => {
+        const scrollPosition = window.scrollY + 200;
+        for (const section of sections) {
+          const element = document.getElementById(section.id);
+          if (element) {
+            const { offsetTop, offsetHeight } = element;
+            if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+              setActiveTab(section.id);
+              break;
+            }
           }
         }
-      }
+        timeoutId = null;
+      }, 100); // 100ms throttle
     };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
     <MainLayout>
+      <SEO
+        title="School Updates"
+        description="Stay informed with the latest school news, upcoming events, tenders, and job vacancies."
+      />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
         <section
           className="relative bg-school-primary text-white pt-16 pb-32 text-center overflow-hidden"
           style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/images/gallery/DSC_0094.JPG")',
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/images/gallery/DSC_0094.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center 35%',
           }}
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10 pt-2 pb-6">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg" style={{ color: '#800000' }}>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg text-white">
               School Updates
             </h1>
-            <p className="text-xl md:text-2xl max-w-2xl mx-auto font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
+            <p className="text-xl md:text-2xl max-w-2xl mx-auto font-bold drop-shadow-md text-gray-100">
               Stay informed about latest events, news, and opportunities at our school.
             </p>
           </div>
@@ -115,12 +130,12 @@ export default function Updates() {
                     {
                       title: "Khwirale Senior Shines in Busia Mathematics Contest",
                       date: "Sept 12, 2025",
-                      img: "/images/gallery/DSC_0111.JPG"
+                      img: "/images/gallery/DSC_0111.webp"
                     },
                     {
                       title: "New Science Lab Commissioning by County Education Team",
                       date: "Aug 28, 2025",
-                      img: "/images/gallery/DSC_0088.JPG"
+                      img: "/images/gallery/DSC_0088.webp"
                     }
                   ].map((news, i) => (
                     <div key={i} className="bg-school-background rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all">

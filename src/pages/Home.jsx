@@ -4,12 +4,15 @@ import HeroCarousel from "../components/HeroCarousel";
 import { schoolData } from "../data/content";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop"; // Assuming ScrollToTop is a component
+import SEO from "../components/SEO";
 
 export default function Home() {
   return (
     <MainLayout>
-      <ScrollToTop />
-
+      <SEO
+        title="Home"
+        description="Welcome to St Peter's Khwirale Senior School. We are dedicated to empowering our students through quality education, discipline, and integrity."
+      />
       <ScrollToTop />
 
       {/* Hero Section */}
@@ -18,7 +21,7 @@ export default function Home() {
 
         <div className="absolute inset-x-0 bottom-0 z-30 max-w-7xl mx-auto px-4 pt-16 pb-40 md:pb-56 flex items-end">
           <div className="text-left md:w-1/2">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
               {schoolData.hero.headline}
             </h1>
             <p className="text-lg md:text-2xl leading-relaxed font-light drop-shadow-md" style={{ color: '#F5F5DC' }}>
@@ -200,7 +203,7 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {schoolData.gallery.slice(0, 3).map((img, index) => (
+            {[0, 5, 10].map((idx) => schoolData.gallery[idx]).map((img, index) => (
               <div key={index} className="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group cursor-pointer">
                 <img
                   src={img}
@@ -243,7 +246,7 @@ export default function Home() {
             <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
               <div className="aspect-video relative overflow-hidden">
                 <img
-                  src="/images/hero/hero2.jpg"
+                  src="/images/hero/hero2.webp"
                   alt="KCSE Prep"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -269,7 +272,7 @@ export default function Home() {
             <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
               <div className="aspect-video relative overflow-hidden">
                 <img
-                  src="/images/hero/hero1.jpg"
+                  src="/images/hero/hero1.webp"
                   alt="Boarding Facilities"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -295,7 +298,7 @@ export default function Home() {
             <article className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-gray-100 group">
               <div className="aspect-video relative overflow-hidden">
                 <img
-                  src="/images/hero/hero3.jpg"
+                  src="/images/hero/hero3.webp"
                   alt="Sports Day"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -420,7 +423,7 @@ export default function Home() {
             <div className="flex flex-wrap md:flex-nowrap justify-around items-center py-12 px-8 gap-12">
               <div className="h-48 flex items-center justify-center p-2">
                 <img
-                  src="/images/partners/moe.png"
+                  src="/images/partners/moe.webp"
                   alt="Ministry of Education"
                   className="h-full w-auto object-contain"
                   loading="lazy"
@@ -430,7 +433,7 @@ export default function Home() {
 
               <div className="h-48 flex items-center justify-center p-2">
                 <img
-                  src="/images/partners/knec.png"
+                  src="/images/partners/knec.webp"
                   alt="KNEC"
                   className="h-full w-auto object-contain"
                   onError={(e) => { e.target.src = "https://www.knec.ac.ke/wp-content/uploads/2021/07/knec-logo.png"; }}
@@ -439,7 +442,7 @@ export default function Home() {
 
               <div className="h-48 flex items-center justify-center p-2">
                 <img
-                  src="/images/partners/tsc.png"
+                  src="/images/partners/tsc.webp"
                   alt="TSC Logo"
                   className="h-full w-auto object-contain"
                   onError={(e) => { e.target.src = "https://www.tsc.go.ke/images/logo.png"; }}
@@ -448,7 +451,7 @@ export default function Home() {
 
               <div className="h-48 flex items-center justify-center p-2">
                 <img
-                  src="/images/partners/kicd.png"
+                  src="/images/partners/kicd.webp"
                   alt="KICD"
                   className="h-full w-auto object-contain"
                   onError={(e) => { e.target.src = "https://kicd.ac.ke/wp-content/uploads/2017/10/kicd-logo.png"; }}

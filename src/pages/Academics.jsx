@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
+import SEO from "../components/SEO";
 
 const sections = [
   { id: "curriculum", title: "Curriculum Overview" },
@@ -34,12 +35,16 @@ export default function Academics() {
 
   return (
     <MainLayout>
+      <SEO
+        title="Academics"
+        description="Explore our academic programs, curriculum, departments, and consistent top performance results in national examinations."
+      />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
         <section
           className="relative bg-school-primary text-white pt-16 pb-32 text-center overflow-hidden"
           style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/images/gallery/DSC_0111.JPG")',
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url("/images/gallery/DSC_0111.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center 35%',
           }}

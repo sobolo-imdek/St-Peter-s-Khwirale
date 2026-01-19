@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
+import SEO from "../components/SEO";
 
 const sections = [
   { id: "overview", title: "Overview & FAQs" },
@@ -36,12 +37,16 @@ export default function About() {
 
   return (
     <MainLayout>
+      <SEO
+        title="About Us"
+        description="Learn about St Peter's Khwirale Senior School history, mission, vision, and core values. Meet our principal and leadership team."
+      />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
         <section
           className="relative bg-school-primary text-white pt-6 pb-16 text-center overflow-hidden"
           style={{
-            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/about-hero.jpg")',
+            backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/images/about-hero.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -56,25 +61,27 @@ export default function About() {
           </div>
         </section>
 
-        <div className="max-w-7xl mx-auto px-4 py-12 flex flex-col lg:flex-row gap-12 relative">
-          {/* Sticky Navigation - Desktop & Mobile Jump-to */}
-          <aside className="lg:w-1/4">
-            <div className="sticky top-28 space-y-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 px-2">
+        <div className="max-w-7xl mx-auto px-4 py-12 flex flex-col lg:flex-row gap-8 lg:gap-12 relative">
+          {/* Sticky Navigation - Horizontal Scroll on Mobile, Sidebar on Desktop */}
+          <aside className="lg:w-1/4 z-20 sticky top-20 lg:top-28">
+            <div className="bg-white p-4 lg:p-6 rounded-2xl shadow-sm border border-gray-100 overflow-x-auto lg:overflow-visible">
+              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2 lg:mb-4 px-2 hidden lg:block">
                 Chapters
               </h3>
-              {sections.map((section) => (
-                <a
-                  key={section.id}
-                  href={`#${section.id}`}
-                  className={`block px-4 py-3 rounded-xl transition-all font-medium ${activeTab === section.id
-                    ? "bg-school-primary text-white shadow-md transform scale-105"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-school-primary"
-                    }`}
-                >
-                  {section.title}
-                </a>
-              ))}
+              <div className="flex lg:flex-col gap-2 min-w-max">
+                {sections.map((section) => (
+                  <a
+                    key={section.id}
+                    href={`#${section.id}`}
+                    className={`block px-4 py-2 lg:py-3 rounded-xl transition-all font-medium whitespace-nowrap text-sm lg:text-base ${activeTab === section.id
+                      ? "bg-school-primary text-white shadow-md transform scale-105"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-school-primary"
+                      }`}
+                  >
+                    {section.title}
+                  </a>
+                ))}
+              </div>
             </div>
           </aside>
 

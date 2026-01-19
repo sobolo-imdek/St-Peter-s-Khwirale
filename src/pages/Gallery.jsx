@@ -10,7 +10,7 @@ export default function Gallery() {
             <div className="bg-school-background min-h-screen">
                 {/* Gallery Grid */}
                 <section className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {schoolData.gallery.map((img, index) => (
                             <div
                                 key={index}
