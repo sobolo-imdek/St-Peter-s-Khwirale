@@ -169,7 +169,7 @@ export default function Academics() {
                 <div className="grid md:grid-cols-2 gap-12">
                   <div className="space-y-6">
                     <p className="text-lg opacity-90 leading-relaxed">
-                      St Peter’s Khwirale Senior School has consistently demonstrated academic prowess in national examinations, ranking as one of the best performing schools in Busia County.
+                      St Peter's Khwirale Senior School has consistently demonstrated academic prowess in national examinations, ranking as one of the best performing schools in Busia County.
                     </p>
                     <ul className="space-y-4">
                       <li className="flex items-center gap-3">

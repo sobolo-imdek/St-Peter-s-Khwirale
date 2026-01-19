@@ -1,6 +1,6 @@
 export const schoolData = {
-    name: "St Peter’s Khwirale Senior School",
-    shortName: "St Peter’s Khwirale Senior School",
+    name: "St Peter's Khwirale Senior School",
+    shortName: "St Peter's Khwirale Senior School",
     location: "Khwirale, Busia County",
     contact: {
         phone: "+254 700 564298",
@@ -57,7 +57,7 @@ export const schoolData = {
         image: "/images/principal.webp", // Placeholder path
     },
     about: {
-        history: "Founded in 2005, St Peter’s Khwirale Senior School began as a humble community initiative to bring quality senior education closer to the people of Busia. Over the decades, we have grown into a center of academic prowess, consistently ranking among the top schools in the region.",
+        history: "Founded in 2005, St Peter's Khwirale Senior School began as a humble community initiative to bring quality senior education closer to the people of Busia. Over the decades, we have grown into a center of academic prowess, consistently ranking among the top schools in the region.",
         mission: "To provide quality education that empowers learners to achieve their full potential in a dynamic world.",
         vision: "A center of excellence in academic and character development.",
         coreValues: ["Discipline", "Integrity", "Hard Work", "Fear of God"],

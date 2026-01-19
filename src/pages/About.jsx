@@ -53,7 +53,7 @@ export default function About() {
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
-              About St Peter’s Khwirale Senior School
+              About St Peter's Khwirale Senior School
             </h1>
             <p className="text-xl md:text-2xl opacity-100 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
               A comprehensive guide to our heritage, values, and community commitment.
@@ -94,7 +94,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2">Overview & FAQs</h2>
                 <div className="prose prose-lg text-gray-600 max-w-none space-y-6">
                   <p>
-                    St Peter’s Khwirale Senior School is a premier mixed day and boarding school located in the heart of Busia County.
+                    St Peter's Khwirale Senior School is a premier mixed day and boarding school located in the heart of Busia County.
                     Since its inception, the school has been a beacon of academic excellence and character formation for students across the region.
                   </p>
                   <div className="grid md:grid-cols-2 gap-8 my-10">

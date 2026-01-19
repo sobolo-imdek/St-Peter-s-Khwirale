@@ -30,7 +30,7 @@ export default function HeroCarousel({
                         <img
                             src={img}
                             alt={`Hero ${i + 1}`}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-[center_35%]"
                             loading={i === 0 ? "eager" : "lazy"}
                         />
                         {/* Cinematic gradient overlay for text readability - darker on mobile */}

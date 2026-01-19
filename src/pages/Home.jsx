@@ -16,10 +16,10 @@ export default function Home() {
       <ScrollToTop />
 
       {/* Hero Section */}
-      <section className="relative z-30 bg-school-primary text-white pb-16 md:pb-20 min-h-[600px] md:min-h-[700px] overflow-hidden">
+      <section className="relative z-30 bg-school-primary text-white pb-6 md:pb-20 min-h-[380px] md:min-h-[700px] overflow-hidden">
         <HeroCarousel images={schoolData.hero.images} />
 
-        <div className="absolute inset-x-0 bottom-0 z-30 max-w-7xl mx-auto px-4 pt-16 pb-40 md:pb-56 flex items-end">
+        <div className="absolute inset-x-0 bottom-0 z-30 max-w-7xl mx-auto px-4 pt-16 pb-8 md:pb-56 flex items-end">
           <div className="text-left md:w-1/2">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
               {schoolData.hero.headline}
@@ -158,7 +158,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <Link
-              to="/academics/departments"
+              to="/academics#departments"
               className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">📚</div>
@@ -167,16 +167,16 @@ export default function Home() {
             </Link>
 
             <Link
-              to="/admissions/fees"
+              to="/contact"
               className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">💳</div>
               <h3 className="text-xl font-bold mb-2 text-school-primary">Fee Structure</h3>
-              <p className="text-sm text-gray-500">Detailed information about school fees and flexible payment methods.</p>
+              <p className="text-sm text-gray-500">Contact us for detailed information about school fees and payment methods.</p>
             </Link>
 
             <Link
-              to="/academics/results"
+              to="/academics#results"
               className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">🏆</div>
@@ -185,7 +185,7 @@ export default function Home() {
             </Link>
 
             <Link
-              to="/events"
+              to="/updates#events"
               className="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 hover:-translate-y-2"
             >
               <div className="text-4xl mb-4 group-hover:scale-110 transition-transform text-center">📅</div>

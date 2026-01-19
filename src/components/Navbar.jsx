@@ -12,7 +12,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center h-16">
 
         <Link to="/" className="font-bold text-lg md:text-2xl leading-tight text-school-maroon tracking-tight">
-          St Peter’s <br className="hidden md:inline" />
+          St Peter's <br className="hidden md:inline" />
           <span className="md:inline block text-gray-800">Khwirale <span className="hidden sm:inline">Senior School</span></span>
         </Link>
 
