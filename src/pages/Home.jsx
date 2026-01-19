@@ -19,12 +19,12 @@ export default function Home() {
       <section className="relative z-30 bg-school-primary text-white pb-6 md:pb-20 min-h-[380px] md:min-h-[700px] overflow-hidden">
         <HeroCarousel images={schoolData.hero.images} />
 
-        <div className="absolute inset-x-0 bottom-0 z-30 max-w-7xl mx-auto px-4 pt-16 pb-8 md:pb-56 flex items-end">
-          <div className="text-left md:w-1/2">
-            <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-sm">
+        <div className="absolute inset-0 z-30 max-w-7xl mx-auto px-4 flex items-center justify-center">
+          <div className="text-center max-w-4xl">
+            <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-lg">
               {schoolData.hero.headline}
             </h1>
-            <p className="text-lg md:text-2xl leading-relaxed font-light drop-shadow-md" style={{ color: '#F5F5DC' }}>
+            <p className="text-lg md:text-2xl leading-relaxed font-light drop-shadow-md text-[#F5F5DC]">
               {schoolData.hero.subheadline}
             </p>
           </div>
