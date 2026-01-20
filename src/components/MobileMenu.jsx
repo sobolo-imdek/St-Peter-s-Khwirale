@@ -27,7 +27,14 @@ export default function MobileMenu({ open, onClose }) {
       {/* Panel */}
       <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-white text-gray-800 shadow-xl transform transition-transform duration-300 ease-in-out">
         <div className="flex items-center justify-between px-4 pt-5 pb-4 border-b border-gray-100">
-          <span className="font-bold text-lg text-school-primary">Menu</span>
+          <div className="flex items-center gap-2">
+            <img
+              src="/school-logo.jpg"
+              alt="St Peter's Khwirale Senior School Logo"
+              className="h-8 w-auto object-contain"
+            />
+            <span className="font-bold text-lg text-school-primary">Menu</span>
+          </div>
           <button
             onClick={onClose}
             className="rounded-md p-2 -mr-2 text-gray-400 hover:text-school-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-school-primary"

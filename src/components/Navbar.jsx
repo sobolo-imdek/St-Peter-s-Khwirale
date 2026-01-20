@@ -11,9 +11,16 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 bg-white border-b border-gray-200 shadow-sm text-school-maroon">
       <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center h-16">
 
-        <Link to="/" className="font-bold text-lg md:text-2xl leading-tight text-school-maroon tracking-tight">
-          St Peter's <br className="hidden md:inline" />
-          <span className="md:inline block text-gray-800">Khwirale <span className="hidden sm:inline">Senior School</span></span>
+        <Link to="/" className="flex items-center gap-2 md:gap-3">
+          <img
+            src="/school-logo.jpg"
+            alt="St Peter's Khwirale Senior School Logo"
+            className="h-10 md:h-12 w-auto object-contain"
+          />
+          <div className="font-bold text-lg md:text-2xl leading-tight text-school-maroon tracking-tight">
+            St Peter's <br className="hidden md:inline" />
+            <span className="md:inline block text-gray-800">Khwirale <span className="hidden sm:inline">Senior School</span></span>
+          </div>
         </Link>
 
         {/* Desktop nav */}
