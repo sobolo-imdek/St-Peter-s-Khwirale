@@ -11,7 +11,7 @@ const Updates = lazy(() => import("./pages/Updates"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 
-// Simple loading fallback
+// Simple loading fallback  (a spinning circle)
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-school-background">
     <div className="w-12 h-12 border-4 border-school-primary border-t-transparent rounded-full animate-spin"></div>
