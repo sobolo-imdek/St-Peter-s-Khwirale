@@ -1,4 +1,7 @@
 // src/components/MobileMenu.jsx
+//Hamburger menu component for mobile navigation, with support for nested submenus and smooth transitions. 
+// It uses state to manage which submenus are expanded and provides a backdrop that closes the menu when clicked outside. 
+// The menu items are generated from the same navLinks data used in the Navbar component, ensuring consistency across the site.
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { navLinks } from "../data/navLinks";
