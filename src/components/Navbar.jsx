@@ -25,6 +25,7 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex gap-6 items-center font-medium">
+          {/* navlinks are like a substitute for <a> tags */}
           {navLinks.map((link) => (
             <div key={link.title} className="relative group">
               <NavLink
