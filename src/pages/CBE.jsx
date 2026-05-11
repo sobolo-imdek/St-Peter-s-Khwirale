@@ -176,6 +176,7 @@ export default function CBE() {
             </section>
 
             {/* Student Life & Welfare */}
+            //work on the text colour Here
             <section id="student-life" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
