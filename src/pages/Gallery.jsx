@@ -27,6 +27,7 @@ export default function Gallery() {
                         ))}
                     </div>
                 </section>
+//add controls on the gallery to the left and right of the image when it is selected
 
                 {/* Lightbox / Modal */}
                 {selectedImage && (
