@@ -81,9 +81,9 @@ export default function Contact() {
                   const message = formData.get('message');
 
                   const subject = `Message from ${name} via Website`;
-                  const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+                  const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
 
-                  window.location.href = `mailto:${schoolData.contact.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+                  window.location.href = `mailto:${schoolData.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 }}
               >
                 <input
