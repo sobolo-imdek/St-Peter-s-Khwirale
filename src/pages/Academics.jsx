@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
+import useSanityPage from "../hooks/useSanityPage";
 
 const sections = [
   { id: "curriculum", title: "Curriculum Overview" },
@@ -13,6 +14,7 @@ const sections = [
 
 export default function Academics() {
   const [activeTab, setActiveTab] = useState("curriculum");
+  const page = useSanityPage("academics");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -36,8 +38,8 @@ export default function Academics() {
   return (
     <MainLayout>
       <SEO
-        title="Academics"
-        description="Explore our academic programs, curriculum, departments, and consistent top performance results in national examinations."
+        title={page.title}
+        description={page.seoDescription}
       />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
@@ -50,9 +52,9 @@ export default function Academics() {
           }}
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10 pt-2 pb-6">
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg" style={{ color: '#800000' }}>Academic Excellence</h1>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg" style={{ color: '#800000' }}>{page.heading}</h1>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
-              Providing diverse pathways for every learner.
+              {page.subheading}
             </p>
           </div>
         </section>

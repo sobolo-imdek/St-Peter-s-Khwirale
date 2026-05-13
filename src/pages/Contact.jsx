@@ -2,13 +2,16 @@
 import MainLayout from "../layouts/MainLayout";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
+import useSanityPage from "../hooks/useSanityPage";
 
 export default function Contact() {
+  const page = useSanityPage("contact");
+
   return (
     <MainLayout>
       <SEO
-        title="Contact Us"
-        description="Get in touch with St Peter's Khwirale Senior School for admissions, inquiries, or any questions."
+        title={page.title}
+        description={page.seoDescription}
       />
       <div className="bg-school-background min-h-screen text-gray-800">
         {/* Hero Section */}
@@ -22,10 +25,10 @@ export default function Contact() {
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10 pt-2 pb-6">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg" style={{ color: '#800000' }}>
-              Get in Touch
+              {page.heading}
             </h1>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
-              We'd love to hear from you. Reach out to us for admissions, inquiries, or any questions.
+              {page.subheading}
             </p>
           </div>
         </section>

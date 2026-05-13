@@ -34,7 +34,7 @@ export default function MobileMenu({ open, onClose }) {
             <img
               src="/school-logo.jpg"
               alt="St Peter's Khwirale Senior School Logo"
-              className="h-8 w-auto object-contain"
+              className="h-8 w-8 object-contain"
             />
             <span className="font-bold text-lg text-school-primary">Menu</span>
           </div>

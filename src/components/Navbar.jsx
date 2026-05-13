@@ -15,7 +15,7 @@ export default function Navbar() {
           <img
             src="/school-logo.jpg"
             alt="St Peter's Khwirale Senior School Logo"
-            className="h-10 md:h-12 w-auto object-contain"
+            className="h-10 w-10 md:h-12 md:w-12 object-contain shrink-0"
           />
           <div className="font-bold text-lg md:text-2xl leading-tight text-school-maroon tracking-tight">
             St Peter's <br className="hidden md:inline" />

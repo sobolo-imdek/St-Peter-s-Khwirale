@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
-import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
+import useSanityPage from "../hooks/useSanityPage";
 
 const sections = [
   { id: "events", title: "Upcoming Events" },
@@ -13,6 +13,7 @@ const sections = [
 
 export default function Updates() {
   const [activeTab, setActiveTab] = useState("events");
+  const page = useSanityPage("updates");
 
   // Handle active section on scroll with throttling
   useEffect(() => {
@@ -46,8 +47,8 @@ export default function Updates() {
   return (
     <MainLayout>
       <SEO
-        title="School Updates"
-        description="Stay informed with the latest school news, upcoming events, tenders, and job vacancies."
+        title={page.title}
+        description={page.seoDescription}
       />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
@@ -61,10 +62,10 @@ export default function Updates() {
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10 pt-2 pb-6">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg text-white">
-              School Updates
+              {page.heading}
             </h1>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto font-bold drop-shadow-md text-gray-100">
-              Stay informed about latest events, news, and opportunities at our school.
+              {page.subheading}
             </p>
           </div>
         </section>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
-import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
+import useSanityPage from "../hooks/useSanityPage";
 
 const sections = [
   { id: "pathways", title: "Pathways & Learning" },
@@ -13,6 +13,7 @@ const sections = [
 
 export default function CBE() {
   const [activeTab, setActiveTab] = useState("pathways");
+  const page = useSanityPage("cbe");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -36,8 +37,8 @@ export default function CBE() {
   return (
     <MainLayout>
       <SEO
-        title="CBE & Admissions"
-        description="Information on Competency Based Education pathways, admission process, fee structure, and student life at St Peter's Khwirale."
+        title={page.title}
+        description={page.seoDescription}
       />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
@@ -51,10 +52,10 @@ export default function CBE() {
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10 pt-2 pb-6">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg" style={{ color: '#800000' }}>
-              Competency Based Education
+              {page.heading}
             </h1>
             <p className="text-xl md:text-2xl max-w-2xl mx-auto font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
-              Nurturing every learner's potential through practical and skills-based learning.
+              {page.subheading}
             </p>
           </div>
         </section>

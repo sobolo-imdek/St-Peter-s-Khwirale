@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
+import useSanityPage from "../hooks/useSanityPage";
 
 const sections = [
   { id: "overview", title: "Overview & FAQs" },
@@ -15,6 +16,7 @@ const sections = [
 
 export default function About() {
   const [activeTab, setActiveTab] = useState("overview");
+  const page = useSanityPage("about");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -38,8 +40,8 @@ export default function About() {
   return (
     <MainLayout>
       <SEO
-        title="About Us"
-        description="Learn about St Peter's Khwirale Senior School history, mission, vision, and core values. Meet our principal and leadership team."
+        title={page.title}
+        description={page.seoDescription}
       />
       <div className="bg-school-background min-h-screen">
         {/* Hero Section */}
@@ -53,10 +55,10 @@ export default function About() {
         >
           <div className="max-w-7xl mx-auto px-4 relative z-10">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg">
-              About St Peter's Khwirale Senior School
+              {page.heading}
             </h1>
             <p className="text-xl md:text-2xl opacity-100 max-w-3xl mx-auto leading-relaxed font-bold drop-shadow-md" style={{ color: '#F5F5DC' }}>
-              A comprehensive guide to our heritage, values, and community commitment.
+              {page.subheading}
             </p>
           </div>
         </section>

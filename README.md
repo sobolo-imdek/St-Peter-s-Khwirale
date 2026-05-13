@@ -2,6 +2,34 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Sanity CMS
+
+This project uses Sanity for editable website content.
+
+- Project ID: `o9prhsvp`
+- Dataset: `production`
+- Studio config: `sanity.config.js`
+- Schemas: `sanity/schemaTypes`
+- Frontend client: `src/lib/sanity.js`
+
+Install the CMS dependencies:
+
+```bash
+npm install sanity @sanity/vision @sanity/client @sanity/image-url @portabletext/react
+```
+
+Run the Sanity Studio locally:
+
+```bash
+npm run sanity:dev
+```
+
+Deploy the Sanity Studio when ready:
+
+```bash
+npm run sanity:deploy
+```
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh

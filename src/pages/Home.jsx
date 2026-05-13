@@ -5,13 +5,17 @@ import { schoolData } from "../data/content";
 import { Link } from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop"; // Assuming ScrollToTop is a component
 import SEO from "../components/SEO";
+import PageBody from "../components/PageBody";
+import useSanityPage from "../hooks/useSanityPage";
 
 export default function Home() {
+  const page = useSanityPage("home");
+
   return (
     <MainLayout>
       <SEO
-        title="Home"
-        description="Welcome to St Peter's Khwirale Senior School. We are dedicated to empowering our students through quality education, discipline, and integrity."
+        title={page.title}
+        description={page.seoDescription}
       />
       <ScrollToTop />
 
@@ -34,15 +38,7 @@ export default function Home() {
       {/* Welcome Section */}
       <section className="relative z-10 py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-school-primary mb-6">
-            Welcome to St Peter's Khwirale Senior School
-          </h2>
-          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-            A public Mixed Senior School categorized as C4 under the new Competency-Based Education (CBE) curriculum. We are dedicated to empowering our students through quality education, discipline, and integrity, while providing a safe and supportive environment where every child can discover their potential and thrive.
-          </p>
-          <p className="text-lg text-gray-700 leading-relaxed">
-            Browse through our website to learn more about us, from our academic programs and vibrant student life to our achievements and community engagement.
-          </p>
+          <PageBody body={page.body} />
         </div>
       </section>
 
