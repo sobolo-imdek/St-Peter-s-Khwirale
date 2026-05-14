@@ -3,6 +3,8 @@ import MainLayout from "../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
+import PageBody from "../components/PageBody";
+import PageLoader from "../components/PageLoader";
 
 const sections = [
   { id: "events", title: "Upcoming Events" },
@@ -43,6 +45,8 @@ export default function Updates() {
       if (timeoutId) clearTimeout(timeoutId);
     };
   }, []);
+
+  if (page.isLoading) return <PageLoader />;
 
   return (
     <MainLayout>
@@ -98,7 +102,7 @@ export default function Updates() {
             <section id="events" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-school-primary">Upcoming Events</h2>
+                <PageBody body={page.body} className="mb-8" />
                 <div className="space-y-6">
                   {[
                     { date: "Oct 15", title: "Academics Day", type: "Main Event" },

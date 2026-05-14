@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
+import PageBody from "../components/PageBody";
+import PageLoader from "../components/PageLoader";
 
 const sections = [
   { id: "curriculum", title: "Curriculum Overview" },
@@ -34,6 +36,8 @@ export default function Academics() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (page.isLoading) return <PageLoader />;
 
   return (
     <MainLayout>
@@ -87,7 +91,7 @@ export default function Academics() {
             <section id="curriculum" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2">Curriculum Overview</h2>
+                <PageBody body={page.body} className="mb-8" />
                 <div className="grid md:grid-cols-2 gap-8">
                   {schoolData.academics.curriculum.map((curr, index) => (
                     <div key={index} className="bg-school-background rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-shadow">

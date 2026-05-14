@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
+import PageBody from "../components/PageBody";
+import PageLoader from "../components/PageLoader";
 
 const sections = [
   { id: "overview", title: "Overview & FAQs" },
@@ -36,6 +38,8 @@ export default function About() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (page.isLoading) return <PageLoader />;
 
   return (
     <MainLayout>
@@ -93,12 +97,8 @@ export default function About() {
             <section id="overview" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2">Overview & FAQs</h2>
                 <div className="prose prose-lg text-gray-600 max-w-none space-y-6">
-                  <p>
-                    St Peter's Khwirale Senior School is a premier mixed day and boarding school located in the heart of Busia County.
-                    Since its inception, the school has been a beacon of academic excellence and character formation for students across the region.
-                  </p>
+                  <PageBody body={page.body} />
                   <div className="grid md:grid-cols-2 gap-8 my-10">
                     <div className="bg-school-background p-6 rounded-2xl border-l-4 border-school-primary">
                       <h4 className="font-bold text-school-primary mb-2">Our Mission</h4>

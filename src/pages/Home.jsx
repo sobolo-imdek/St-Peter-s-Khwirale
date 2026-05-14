@@ -7,9 +7,12 @@ import ScrollToTop from "../components/ScrollToTop"; // Assuming ScrollToTop is 
 import SEO from "../components/SEO";
 import PageBody from "../components/PageBody";
 import useSanityPage from "../hooks/useSanityPage";
+import PageLoader from "../components/PageLoader";
 
 export default function Home() {
   const page = useSanityPage("home");
+
+  if (page.isLoading) return <PageLoader />;
 
   return (
     <MainLayout>
