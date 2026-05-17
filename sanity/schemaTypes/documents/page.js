@@ -17,6 +17,19 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: "heading",
+      title: "Hero Heading",
+      type: "string",
+      description: "Main header text inside the top hero banner.",
+    },
+    {
+      name: "subheading",
+      title: "Hero Subheading",
+      type: "text",
+      rows: 2,
+      description: "Sub-headline text inside the top hero banner.",
+    },
+    {
       name: "seoDescription",
       title: "SEO Description",
       type: "text",

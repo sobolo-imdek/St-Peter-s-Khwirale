@@ -30,4 +30,58 @@ export const sectionDefaults = {
       ),
     ],
   },
+  "about:history": {
+    title: "School History",
+    body: [
+      block(
+        "Founded in 2005, St Peter's Khwirale Senior School began as a humble community initiative to bring quality senior education closer to the people of Busia. Over the decades, we have grown into a center of academic prowess, consistently ranking among the top schools in the region."
+      ),
+      block(
+        "From our first graduating class to our current status as a regional giant, the journey has been marked by resilience and the unwavering support of the Khwirale community. What started as a single block has expanded into a multi-facility campus including modern science labs, a computer center, and spacious sports fields."
+      ),
+    ],
+  },
+  "about:alumni": {
+    title: "Alumni Community",
+    body: [
+      block(
+        "Our alumni are our greatest pride. Spread across the globe in various sectors — from medicine and engineering to arts and entrepreneurship — they continue to carry the \"Endeavour to Excel\" spirit."
+      ),
+      block(
+        "The St Peter's Khwirale Senior School Alumni Association works to support current students through mentorship programs, scholarships, and infrastructure development. Join our network to give back and connect with former schoolmates."
+      ),
+    ],
+  },
+  "academics:departments": {
+    title: "Academic Departments",
+    body: [
+      block(
+        "Our school is organized into specialized departments that ensure focused instruction and subject-specific expertise."
+      ),
+    ],
+  },
+  "academics:faculty": {
+    title: "Faculty & Teaching Staff",
+    body: [
+      block(
+        "We take pride in our highly qualified and dedicated teaching staff. With over 45+ professional educators, we maintain an excellent teacher-to-student ratio."
+      ),
+    ],
+  },
+  "cbe:admissions": {
+    title: "Admissions Process",
+    body: [
+      block(
+        "Joining St Peter's Khwirale is a straightforward process managed with transparency and care."
+      ),
+    ],
+  },
+  "cbe:fees": {
+    title: "Fee Structure",
+    body: [
+      block(
+        "We maintain competitive and transparent fees to ensure quality education remains accessible."
+      ),
+    ],
+  },
 };

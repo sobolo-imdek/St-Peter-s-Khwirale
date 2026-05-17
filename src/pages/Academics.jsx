@@ -14,9 +14,13 @@ const sections = [
   { id: "results", title: "Performance & Results" },
 ];
 
+import useSanitySection from "../hooks/useSanitySection";
+
 export default function Academics() {
   const [activeTab, setActiveTab] = useState("curriculum");
   const page = useSanityPage("academics");
+  const departmentsSection = useSanitySection("academics", "departments");
+  const facultySection = useSanitySection("academics", "faculty");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -116,9 +120,7 @@ export default function Academics() {
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 2</span>
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2">Academic Departments</h2>
                 <div className="space-y-6 text-gray-600">
-                  <p className="text-lg leading-relaxed">
-                    Our school is organized into specialized departments that ensure focused instruction and subject-specific expertise.
-                  </p>
+                  <PageBody body={departmentsSection.body} className="text-lg leading-relaxed mb-6" />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
                       { name: "Mathematics Department", icon: "📐" },
@@ -145,9 +147,7 @@ export default function Academics() {
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2">Faculty & Teaching Staff</h2>
                 <div className="flex flex-col md:flex-row gap-12 items-center">
                   <div className="md:w-1/2 space-y-6">
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                      We take pride in our highly qualified and dedicated teaching staff. With over 45+ professional educators, we maintain an excellent teacher-to-student ratio.
-                    </p>
+                    <PageBody body={facultySection.body} className="text-lg text-gray-600 leading-relaxed mb-6" />
                     <div className="bg-school-primary text-white p-6 rounded-2xl shadow-lg">
                       <p className="italic mb-4">"Our teachers don't just teach subjects; they mentor future leaders."</p>
                       <h4 className="font-bold">— Annastancia Otawa, Principal</h4>

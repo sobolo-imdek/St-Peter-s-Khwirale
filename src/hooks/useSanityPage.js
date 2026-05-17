@@ -5,6 +5,8 @@ import { pageDefaults } from "../data/pageDefaults";
 const pageQuery = `*[_type == "page" && slug.current == $slug] | order(_updatedAt desc)[0]{
   _updatedAt,
   title,
+  heading,
+  subheading,
   seoDescription,
   body
 }`;
@@ -45,6 +47,8 @@ function mergePage(fallback, cmsPage) {
     ...fallback,
     ...cmsPage,
     title: cmsPage.title || fallback.title,
+    heading: cmsPage.heading || fallback.heading,
+    subheading: cmsPage.subheading || fallback.subheading,
     seoDescription: cmsPage.seoDescription || fallback.seoDescription,
     body: hasPortableText(cmsPage.body) ? cmsPage.body : fallback.body,
   };

@@ -13,9 +13,15 @@ const sections = [
   { id: "student-life", title: "Student Life & Welfare" },
 ];
 
+import useSanitySection from "../hooks/useSanitySection";
+import useSanityFees from "../hooks/useSanityFees";
+
 export default function CBE() {
   const [activeTab, setActiveTab] = useState("pathways");
   const page = useSanityPage("cbe");
+  const admissionsSection = useSanitySection("cbe", "admissions");
+  const feesSection = useSanitySection("cbe", "fees");
+  const { fees } = useSanityFees();
 
   // Handle active section on scroll
   useEffect(() => {
@@ -114,9 +120,7 @@ export default function CBE() {
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 2</span>
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-school-primary">Admissions Process</h2>
                 <div className="space-y-6 text-gray-700">
-                  <p className="text-lg leading-relaxed font-medium">
-                    Joining St Peter's Khwirale is a straightforward process managed with transparency and care.
-                  </p>
+                  <PageBody body={admissionsSection.body} className="text-lg leading-relaxed font-medium mb-6" />
                   <div className="relative pl-8 border-l-2 border-school-secondary space-y-8">
                     <div className="relative">
                       <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-school-secondary border-4 border-white"></div>
@@ -144,9 +148,7 @@ export default function CBE() {
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm font-sans not-italic">Chapter 3</span>
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2 font-sans not-italic text-school-primary">Fee Structure</h2>
                 <div className="prose prose-lg text-gray-700 max-w-none space-y-6 font-sans not-italic">
-                  <p>
-                    We maintain competitive and transparent fees to ensure quality education remains accessible.
-                  </p>
+                  <PageBody body={feesSection.body} className="mb-6" />
                   <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
                     <table className="w-full text-left border-collapse">
                       <thead className="bg-school-primary text-white">
@@ -156,18 +158,12 @@ export default function CBE() {
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-100">
-                        <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="p-4 text-gray-600">Tuition & Learning Materials</td>
-                          <td className="p-4 font-bold text-school-primary">KES 12,500</td>
-                        </tr>
-                        <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="p-4 text-gray-600">Administrative Levies</td>
-                          <td className="p-4 font-bold text-school-primary">KES 3,200</td>
-                        </tr>
-                        <tr className="hover:bg-gray-50 transition-colors">
-                          <td className="p-4 text-gray-600">Activity & Development</td>
-                          <td className="p-4 font-bold text-school-primary">KES 2,800</td>
-                        </tr>
+                        {fees.map((fee, index) => (
+                          <tr key={index} className="hover:bg-gray-50 transition-colors">
+                            <td className="p-4 text-gray-600">{fee.category}</td>
+                            <td className="p-4 font-bold text-school-primary">{fee.amount}</td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
@@ -177,7 +173,7 @@ export default function CBE() {
             </section>
 
             {/* Student Life & Welfare */}
-            //work on the text colour Here
+            {/*work on the text colour Here*/}
             <section id="student-life" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>

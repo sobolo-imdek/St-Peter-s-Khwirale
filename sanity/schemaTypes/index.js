@@ -6,6 +6,8 @@ import heroSlide from "./documents/heroSlide";
 import download from "./documents/download";
 import siteSettings from "./documents/siteSettings";
 import pageSection from "./documents/pageSection";
+import principal from "./documents/principal";
+import feeStructure from "./documents/feeStructure";
 
 export const schemaTypes = [
   blockContent,
@@ -16,4 +18,6 @@ export const schemaTypes = [
   pageSection,
   download,
   siteSettings,
+  principal,
+  feeStructure,
 ];

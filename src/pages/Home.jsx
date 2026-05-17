@@ -9,12 +9,14 @@ import PageBody from "../components/PageBody";
 import useSanityPage from "../hooks/useSanityPage";
 import PageLoader from "../components/PageLoader";
 import useSanityHeroSlides from "../hooks/useSanityHeroSlides";
+import useSanityPrincipal from "../hooks/useSanityPrincipal";
 
 export default function Home() {
+  const { principal, loading: principalLoading } = useSanityPrincipal();
   const page = useSanityPage("home");
   const hero = useSanityHeroSlides();
 
-  if (page.isLoading || hero.isLoading) return <PageLoader />;
+  if (page.isLoading || hero.isLoading || principalLoading) return <PageLoader />;
 
   return (
     <MainLayout>
@@ -118,21 +120,21 @@ export default function Home() {
                 </div>
                 {/* Real image tag */}
                 <img
-                  src={schoolData.principal.image}
-                  alt={schoolData.principal.name}
+                  src={principal.image}
+                  alt={principal.name}
                   className="absolute inset-0 w-full h-full object-cover object-top"
                   loading="lazy"
                 />
                 <div className="absolute bottom-0 inset-x-0 bg-school-primary/90 p-6 backdrop-blur-sm">
-                  <p className="text-white font-bold text-lg">{schoolData.principal.name}</p>
-                  <p className="text-school-secondary text-sm">{schoolData.principal.title}</p>
+                  <p className="text-white font-bold text-lg">{principal.name}</p>
+                  <p className="text-school-secondary text-sm">{principal.title}</p>
                 </div>
               </div>
             </div>
 
             <div className="w-full md:w-2/3 text-left">
               <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-8 border-l-8 border-school-secondary pl-6 leading-relaxed whitespace-pre-line">
-                "{schoolData.principal.message}"
+                "{principal.message}"
               </blockquote>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/about" className="inline-flex items-center justify-center gap-2 text-white bg-school-primary px-8 py-3 rounded-lg font-semibold hover:bg-school-primary-light transition-all shadow-md hover:scale-105 active:scale-95">

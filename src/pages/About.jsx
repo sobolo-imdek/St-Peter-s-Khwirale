@@ -23,6 +23,8 @@ export default function About() {
   const [activeTab, setActiveTab] = useState("overview");
   const page = useSanityPage("about");
   const bomPaSection = useSanitySection("about", "bom-pa");
+  const historySection = useSanitySection("about", "history");
+  const alumniSection = useSanitySection("about", "alumni");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -181,13 +183,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2">School History</h2>
                 <div className="flex flex-col md:flex-row gap-12">
                   <div className="md:w-1/2 space-y-6 text-gray-600">
-                    <p>
-                      {schoolData.about.history}
-                    </p>
-                    <p>
-                      From our first graduating class to our current status as a regional giant, the journey has been marked by resilience and the unwavering support of the Khwirale community.
-                      What started as a single block has expanded into a multi-facility campus including modern science labs, a computer center, and spacious sports fields.
-                    </p>
+                    <PageBody body={historySection.body} />
                   </div>
                   <div className="md:w-1/2 bg-gray-50 rounded-2xl p-8 relative">
                     <div className="absolute top-0 left-8 h-full w-1 bg-school-secondary/20"></div>
@@ -309,13 +305,7 @@ export default function About() {
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 6</span>
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2">Alumni Community</h2>
                 <div className="prose prose-lg text-gray-600 max-w-none space-y-6">
-                  <p>
-                    Our alumni are our greatest pride. Spread across the globe in various sectors — from medicine and engineering to arts and entrepreneurship — they continue to carry the "Endeavour to Excel" spirit.
-                  </p>
-                  <p>
-                    The St Peter's Khwirale Senior School Alumni Association works to support current students through mentorship programs, scholarships, and infrastructure development.
-                    Join our network to give back and connect with former schoolmates.
-                  </p>
+                  <PageBody body={alumniSection.body} />
                   <div className="mt-8">
                     <Link to="/alumni" className="inline-block bg-school-primary text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg transition-all">
                       Join Alumni Network
