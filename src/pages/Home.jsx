@@ -8,11 +8,13 @@ import SEO from "../components/SEO";
 import PageBody from "../components/PageBody";
 import useSanityPage from "../hooks/useSanityPage";
 import PageLoader from "../components/PageLoader";
+import useSanityHeroSlides from "../hooks/useSanityHeroSlides";
 
 export default function Home() {
   const page = useSanityPage("home");
+  const hero = useSanityHeroSlides();
 
-  if (page.isLoading) return <PageLoader />;
+  if (page.isLoading || hero.isLoading) return <PageLoader />;
 
   return (
     <MainLayout>
@@ -24,15 +26,15 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative z-30 bg-school-primary text-white pb-6 md:pb-20 min-h-[380px] md:min-h-[700px] overflow-hidden">
-        <HeroCarousel images={schoolData.hero.images} />
+        <HeroCarousel images={hero.slides} />
 
         <div className="absolute z-30 max-w-7xl mx-auto px-4 flex flex-col inset-0 items-center justify-center md:justify-end md:items-start md:pb-56">
           <div className="text-center md:text-left max-w-4xl md:w-1/2">
             <h1 className="text-3xl md:text-6xl font-extrabold mb-6 tracking-tight text-white drop-shadow-lg">
-              {schoolData.hero.headline}
+              {hero.headline}
             </h1>
             <p className="text-lg md:text-2xl leading-relaxed font-light drop-shadow-md text-[#F5F5DC]">
-              {schoolData.hero.subheadline}
+              {hero.subheadline}
             </p>
           </div>
         </div>

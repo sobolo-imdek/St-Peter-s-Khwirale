@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function HeroCarousel({
     images = [],
@@ -10,14 +10,17 @@ export default function HeroCarousel({
 
     const prev = () =>
         setCurr((curr) => (curr === 0 ? images.length - 1 : curr - 1));
-    const next = () =>
+    const next = useCallback(() =>
         setCurr((curr) => (curr === images.length - 1 ? 0 : curr + 1));
+    , [images.length]);
 
     useEffect(() => {
-        if (!autoSlide) return;
+        if (!autoSlide || images.length <= 1) return;
         const slideInterval = setInterval(next, autoSlideInterval);
         return () => clearInterval(slideInterval);
-    }, [curr, autoSlide, autoSlideInterval]);
+    }, [autoSlide, autoSlideInterval, images.length, next]);
+
+    if (images.length === 0) return null;
 
     return (
         <div className="absolute inset-0 overflow-hidden">
@@ -27,7 +30,7 @@ export default function HeroCarousel({
                 style={{ transform: `translateX(-${curr * 100}%)` }}
             >
                 {images.map((img, i) => (
-                    <div key={i} className="min-w-full h-full relative">
+                    <div key={`${typeof img === 'string' ? img : img.src}-${i}`} className="min-w-full h-full relative">
                         <img
                             src={typeof img === 'string' ? img : img.src}
                             alt={typeof img === 'string' ? `Hero ${i + 1}` : img.alt}

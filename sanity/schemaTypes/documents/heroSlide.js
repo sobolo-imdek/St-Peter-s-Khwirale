@@ -25,7 +25,6 @@ export default {
       title: "Slide Image",
       type: "image",
       options: { hotspot: true },
-      validation: (Rule) => Rule.required(),
       fields: [
         {
           name: "alt",
@@ -33,6 +32,12 @@ export default {
           type: "string",
         },
       ],
+    },
+    {
+      name: "imageUrl",
+      title: "Existing Image URL",
+      type: "string",
+      description: "Use this for existing public images, for example /images/hero/hero1.webp. Leave empty when uploading a Slide Image.",
     },
     {
       name: "order",
