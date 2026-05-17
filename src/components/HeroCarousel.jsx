@@ -10,9 +10,9 @@ export default function HeroCarousel({
 
     const prev = () =>
         setCurr((curr) => (curr === 0 ? images.length - 1 : curr - 1));
-    const next = useCallback(() =>
+    const next = useCallback(() => {
         setCurr((curr) => (curr === images.length - 1 ? 0 : curr + 1));
-    , [images.length]);
+    }, [images.length]);
 
     useEffect(() => {
         if (!autoSlide || images.length <= 1) return;

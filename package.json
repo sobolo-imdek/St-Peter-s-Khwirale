@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sanity:dev": "sanity dev",
-    "sanity:deploy": "sanity deploy"
+    "sanity:dev": "node node_modules/sanity/bin/sanity dev",
+    "sanity:deploy": "node node_modules/sanity/bin/sanity deploy"
   },
   "dependencies": {
     "@portabletext/react": "^6.2.0",

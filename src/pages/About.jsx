@@ -6,6 +6,7 @@ import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
 import PageBody from "../components/PageBody";
 import PageLoader from "../components/PageLoader";
+import useSanitySection from "../hooks/useSanitySection";
 
 const sections = [
   { id: "overview", title: "Overview & FAQs" },
@@ -16,9 +17,12 @@ const sections = [
   { id: "alumni", title: "Alumni Community" },
 ];
 
+const showStaticBomPaFallback = false;
+
 export default function About() {
   const [activeTab, setActiveTab] = useState("overview");
   const page = useSanityPage("about");
+  const bomPaSection = useSanitySection("about", "bom-pa");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -213,6 +217,11 @@ export default function About() {
             <section id="bom-pa" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 italic bg-gradient-to-br from-white to-gray-50">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm font-sans not-italic">Chapter 3</span>
+                <div className="font-sans not-italic">
+                  <PageBody body={bomPaSection.body} />
+                </div>
+                {showStaticBomPaFallback && (
+                  <>
                 <h2 className="text-3xl md:text-4xl mb-8 mt-2 font-sans not-italic">BOM & Parents Association</h2>
                 <div className="grid md:grid-cols-2 gap-12 font-sans not-italic">
                   <div className="space-y-6">
@@ -238,6 +247,8 @@ export default function About() {
                     </div>
                   </div>
                 </div>
+                  </>
+                )}
               </div>
             </section>
 

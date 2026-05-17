@@ -5,6 +5,7 @@ import galleryImage from "./documents/galleryImage";
 import heroSlide from "./documents/heroSlide";
 import download from "./documents/download";
 import siteSettings from "./documents/siteSettings";
+import pageSection from "./documents/pageSection";
 
 export const schemaTypes = [
   blockContent,
@@ -12,6 +13,7 @@ export const schemaTypes = [
   update,
   galleryImage,
   heroSlide,
+  pageSection,
   download,
   siteSettings,
 ];
