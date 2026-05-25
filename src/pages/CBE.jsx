@@ -19,8 +19,10 @@ import useSanityFees from "../hooks/useSanityFees";
 export default function CBE() {
   const [activeTab, setActiveTab] = useState("pathways");
   const page = useSanityPage("cbe");
+  const pathwaysSection = useSanitySection("cbe", "pathways");
   const admissionsSection = useSanitySection("cbe", "admissions");
   const feesSection = useSanitySection("cbe", "fees");
+  const studentLifeSection = useSanitySection("cbe", "student-life");
   const { fees } = useSanityFees();
 
   // Handle active section on scroll
@@ -99,7 +101,7 @@ export default function CBE() {
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
                 <div className="prose prose-lg text-gray-700 max-w-none space-y-6">
-                  <PageBody body={page.body} />
+                  <PageBody body={pathwaysSection.body} />
                   <div className="grid md:grid-cols-2 gap-8 my-10">
                     <div className="bg-school-background p-6 rounded-2xl border-l-4 border-school-primary">
                       <h4 className="font-bold text-school-primary mb-2">STEM Pathway</h4>
@@ -177,7 +179,7 @@ export default function CBE() {
             <section id="student-life" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-white">Student Life & Welfare</h2>
+                <PageBody body={studentLifeSection.body} className="mb-8 [&_h2]:!text-white [&_p]:!text-white/80" />
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
                     <span className="text-3xl mb-4 block">🏡</span>

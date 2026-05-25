@@ -39,6 +39,8 @@ export default {
       name: "body",
       title: "Page Content",
       type: "blockContent",
+      description: "Only the Home page keeps page-level content. Other pages use Page Sections.",
+      hidden: ({ document }) => document?.slug?.current !== "home",
     },
   ],
   preview: {

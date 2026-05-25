@@ -19,8 +19,10 @@ import useSanitySection from "../hooks/useSanitySection";
 export default function Academics() {
   const [activeTab, setActiveTab] = useState("curriculum");
   const page = useSanityPage("academics");
+  const curriculumSection = useSanitySection("academics", "curriculum");
   const departmentsSection = useSanitySection("academics", "departments");
   const facultySection = useSanitySection("academics", "faculty");
+  const resultsSection = useSanitySection("academics", "results");
 
   // Handle active section on scroll
   useEffect(() => {
@@ -95,7 +97,7 @@ export default function Academics() {
             <section id="curriculum" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
-                <PageBody body={page.body} className="mb-8" />
+                <PageBody body={curriculumSection.body} className="mb-8" />
                 <div className="grid md:grid-cols-2 gap-8">
                   {schoolData.academics.curriculum.map((curr, index) => (
                     <div key={index} className="bg-school-background rounded-2xl p-8 border border-gray-100 hover:shadow-md transition-shadow">
@@ -171,12 +173,9 @@ export default function Academics() {
             <section id="results" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-white">Performance & Results</h2>
                 <div className="grid md:grid-cols-2 gap-12">
                   <div className="space-y-6">
-                    <p className="text-lg opacity-90 leading-relaxed">
-                      St Peter's Khwirale Senior School has consistently demonstrated academic prowess in national examinations, ranking as one of the best performing schools in Busia County.
-                    </p>
+                    <PageBody body={resultsSection.body} className="[&_h2]:!text-white [&_p]:!text-white/90" />
                     <ul className="space-y-4">
                       <li className="flex items-center gap-3">
                         <span className="text-school-secondary text-xl">🏆</span>

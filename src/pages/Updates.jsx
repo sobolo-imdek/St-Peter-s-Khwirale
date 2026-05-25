@@ -5,6 +5,7 @@ import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
 import PageBody from "../components/PageBody";
 import PageLoader from "../components/PageLoader";
+import useSanitySection from "../hooks/useSanitySection";
 
 const sections = [
   { id: "events", title: "Upcoming Events" },
@@ -16,6 +17,10 @@ const sections = [
 export default function Updates() {
   const [activeTab, setActiveTab] = useState("events");
   const page = useSanityPage("updates");
+  const eventsSection = useSanitySection("updates", "events");
+  const newsSection = useSanitySection("updates", "news");
+  const tendersSection = useSanitySection("updates", "tenders");
+  const careersSection = useSanitySection("updates", "careers");
 
   // Handle active section on scroll with throttling
   useEffect(() => {
@@ -102,7 +107,7 @@ export default function Updates() {
             <section id="events" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
-                <PageBody body={page.body} className="mb-8" />
+                <PageBody body={eventsSection.body} className="mb-8" />
                 <div className="space-y-6">
                   {[
                     { date: "Oct 15", title: "Academics Day", type: "Main Event" },
@@ -129,7 +134,7 @@ export default function Updates() {
             <section id="news" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 2</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-school-primary">News & Articles</h2>
+                <PageBody body={newsSection.body} className="mb-8" />
                 <div className="grid md:grid-cols-2 gap-8">
                   {[
                     {
@@ -165,7 +170,7 @@ export default function Updates() {
             <section id="tenders" className="scroll-mt-32">
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100 italic bg-gradient-to-br from-white to-gray-50">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm font-sans not-italic">Chapter 3</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 font-sans not-italic text-school-primary">Tenders & Public Notices</h2>
+                <PageBody body={tendersSection.body} className="mb-8 font-sans not-italic" />
                 <div className="space-y-4 font-sans not-italic">
                   <div className="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm flex items-center justify-between group cursor-pointer hover:border-school-secondary transition-colors">
                     <div className="flex items-center gap-4">
@@ -194,13 +199,9 @@ export default function Updates() {
             <section id="careers" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-white">Job Vacancies</h2>
+                <PageBody body={careersSection.body} className="mb-8 [&_h2]:!text-white [&_p]:!text-white/80" />
                 <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
                   <h4 className="text-xl font-bold mb-4 text-school-secondary tracking-wide italic">Join our team of dedicated professionals!</h4>
-                  <p className="opacity-90 max-w-2xl mb-8 leading-relaxed">
-                    St Peter's Khwirale Senior School is always looking for passionate educators and staff to join our family.
-                    If you are dedicated to academic excellence and character formation, we'd love to hear from you.
-                  </p>
                   <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-grow p-5 bg-white rounded-xl text-school-primary flex items-center justify-between hover:scale-[1.02] transition-transform cursor-pointer shadow-lg">
                       <div>

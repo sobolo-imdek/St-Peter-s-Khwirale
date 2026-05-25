@@ -18,7 +18,10 @@ export default {
         list: [
           { title: "About", value: "about" },
           { title: "Academics", value: "academics" },
-          { title: "CBE & Admissions", value: "cbe" }
+          { title: "CBE & Admissions", value: "cbe" },
+          { title: "Updates", value: "updates" },
+          { title: "Contact", value: "contact" },
+          { title: "Gallery", value: "gallery" }
         ],
       },
       validation: (Rule) => Rule.required(),
@@ -30,13 +33,26 @@ export default {
       description: "Select which specific section of the page this content represents.",
       options: {
         list: [
+          { title: "Overview & FAQs (About Page)", value: "overview" },
           { title: "School History (About Page)", value: "history" },
           { title: "Alumni Community (About Page)", value: "alumni" },
           { title: "BOM & Parents Association (About Page)", value: "bom-pa" },
+          { title: "Service Charter (About Page)", value: "service-charter" },
+          { title: "School Gallery (About Page)", value: "gallery" },
+          { title: "Curriculum Overview (Academics Page)", value: "curriculum" },
           { title: "Academic Departments (Academics Page)", value: "departments" },
           { title: "Faculty & Staff (Academics Page)", value: "faculty" },
+          { title: "Performance & Results (Academics Page)", value: "results" },
+          { title: "Pathways & Learning (CBE Page)", value: "pathways" },
           { title: "Admissions Process (CBE Page)", value: "admissions" },
-          { title: "Fee Structure Intro (CBE Page)", value: "fees" }
+          { title: "Fee Structure Intro (CBE Page)", value: "fees" },
+          { title: "Student Life & Welfare (CBE Page)", value: "student-life" },
+          { title: "Upcoming Events (Updates Page)", value: "events" },
+          { title: "News & Articles (Updates Page)", value: "news" },
+          { title: "Tenders & Public Notices (Updates Page)", value: "tenders" },
+          { title: "Job Vacancies (Updates Page)", value: "careers" },
+          { title: "Contact Intro (Contact Page)", value: "contact" },
+          { title: "Gallery Intro (Gallery Page)", value: "gallery" }
         ],
       },
       validation: (Rule) => Rule.required(),

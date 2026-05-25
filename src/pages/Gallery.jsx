@@ -3,12 +3,14 @@ import MainLayout from "../layouts/MainLayout";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
+import useSanitySection from "../hooks/useSanitySection";
 import PageBody from "../components/PageBody";
 import PageLoader from "../components/PageLoader";
 
 export default function Gallery() {
     const [selectedImage, setSelectedImage] = useState(null);
     const page = useSanityPage("gallery");
+    const gallerySection = useSanitySection("gallery", "gallery");
 
     if (page.isLoading) return <PageLoader />;
 
@@ -17,7 +19,7 @@ export default function Gallery() {
             <SEO title={page.title} description={page.seoDescription} />
             <div className="bg-school-background min-h-screen">
                 <section className="max-w-7xl mx-auto px-4 pt-10 text-center">
-                    <PageBody body={page.body} />
+                    <PageBody body={gallerySection.body} />
                 </section>
                 {/* Gallery Grid */}
                 <section className="max-w-7xl mx-auto px-4 py-8 md:py-12">

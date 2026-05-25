@@ -22,8 +22,11 @@ const showStaticBomPaFallback = false;
 export default function About() {
   const [activeTab, setActiveTab] = useState("overview");
   const page = useSanityPage("about");
+  const overviewSection = useSanitySection("about", "overview");
   const bomPaSection = useSanitySection("about", "bom-pa");
   const historySection = useSanitySection("about", "history");
+  const serviceCharterSection = useSanitySection("about", "service-charter");
+  const gallerySection = useSanitySection("about", "gallery");
   const alumniSection = useSanitySection("about", "alumni");
 
   // Handle active section on scroll
@@ -104,7 +107,7 @@ export default function About() {
               <div className="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-gray-100">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 1</span>
                 <div className="prose prose-lg text-gray-600 max-w-none space-y-6">
-                  <PageBody body={page.body} />
+                  <PageBody body={overviewSection.body} />
                   <div className="grid md:grid-cols-2 gap-8 my-10">
                     <div className="bg-school-background p-6 rounded-2xl border-l-4 border-school-primary">
                       <h4 className="font-bold text-school-primary mb-2">Our Mission</h4>
@@ -252,7 +255,7 @@ export default function About() {
             <section id="service-charter" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
                 <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
-                <h2 className="text-3xl md:text-4xl mb-8 mt-2 text-white">Service Charter</h2>
+                <PageBody body={serviceCharterSection.body} className="mb-8 [&_h2]:!text-white [&_p]:!text-white/80" />
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="space-y-4">
                     <div className="w-12 h-12 bg-school-secondary rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">01</div>
@@ -279,7 +282,7 @@ export default function About() {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
                   <div>
                     <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 5</span>
-                    <h2 className="text-3xl md:text-4xl mt-2">School Gallery</h2>
+                    <PageBody body={gallerySection.body} className="mt-2" />
                   </div>
                   <Link to="/gallery" className="text-school-primary font-bold hover:text-school-secondary transition-colors flex items-center gap-2">
                     View Full Gallery <span>→</span>

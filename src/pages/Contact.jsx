@@ -3,11 +3,13 @@ import MainLayout from "../layouts/MainLayout";
 import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
+import useSanitySection from "../hooks/useSanitySection";
 import PageBody from "../components/PageBody";
 import PageLoader from "../components/PageLoader";
 
 export default function Contact() {
   const page = useSanityPage("contact");
+  const contactSection = useSanitySection("contact", "contact");
 
   if (page.isLoading) return <PageLoader />;
 
@@ -38,7 +40,7 @@ export default function Contact() {
         </section>
 
         <section className="max-w-4xl mx-auto px-4 pt-16 text-center">
-          <PageBody body={page.body} />
+          <PageBody body={contactSection.body} />
         </section>
 
         <div className="max-w-7xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12">
