@@ -6,6 +6,7 @@ import useSanityPage from "../hooks/useSanityPage";
 import PageBody from "../components/PageBody";
 import PageLoader from "../components/PageLoader";
 import useSanitySection from "../hooks/useSanitySection";
+import useSanityUpdatesLists from "../hooks/useSanityUpdatesLists";
 
 const sections = [
   { id: "events", title: "Upcoming Events" },
@@ -21,6 +22,7 @@ export default function Updates() {
   const newsSection = useSanitySection("updates", "news");
   const tendersSection = useSanitySection("updates", "tenders");
   const careersSection = useSanitySection("updates", "careers");
+  const { events, news, tenders, careers, isLoading: listsLoading } = useSanityUpdatesLists();
 
   // Handle active section on scroll with throttling
   useEffect(() => {

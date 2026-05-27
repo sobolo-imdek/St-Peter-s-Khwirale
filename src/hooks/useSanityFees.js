@@ -4,26 +4,18 @@ import { sanityClient } from "../lib/sanity";
 const defaultFees = [
   { category: "Tuition & Learning Materials", amount: "KES 12,500" },
   { category: "Administrative Levies", amount: "KES 3,200" },
-  { category: "Activity & Development", amount: "KES 2,800" },
+  { category: "Activity & Co-curricular", amount: "KES 1,500" },
+  { category: "Medical & Insurance", amount: "KES 800" },
+  { category: "PTA Project Fund", amount: "KES 2,000" },
 ];
 
 export default function useSanityFees() {
   const [fees, setFees] = useState(defaultFees);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const cached = localStorage.getItem("sanity_fees");
-    if (cached) {
-      try {
-        setFees(JSON.parse(cached));
-      } catch (e) {
-        console.error("Error parsing cached fees:", e);
-      }
-    }
-
     const fetchFees = async () => {
       try {
-        const query = `*[_type == "feeStructure"][0]{
+        const query = `*[_type == "feeStructure" && _id == "fee-structure-default"][0]{
           fees[]{
             category,
             amount
@@ -34,17 +26,14 @@ export default function useSanityFees() {
         
         if (data && data.fees && data.fees.length > 0) {
           setFees(data.fees);
-          localStorage.setItem("sanity_fees", JSON.stringify(data.fees));
         }
-      } catch (err) {
-        console.error("Error fetching fees from Sanity:", err);
-      } finally {
-        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching fees from Sanity:", error);
       }
     };
 
     fetchFees();
   }, []);
 
-  return { fees, loading };
+  return { fees };
 }

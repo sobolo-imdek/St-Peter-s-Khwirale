@@ -12,24 +12,24 @@ export default {
     },
     {
       name: "fees",
-      title: "Fees List",
+      title: "Fee Breakdown",
       type: "array",
       of: [
         {
           type: "object",
-          name: "feeItem",
-          title: "Fee Item",
           fields: [
             {
               name: "category",
               title: "Category",
               type: "string",
+              description: "E.g., Tuition, Administrative Levies, etc.",
               validation: (Rule) => Rule.required(),
             },
             {
               name: "amount",
               title: "Amount",
               type: "string",
+              description: "E.g., KES 12,500",
               validation: (Rule) => Rule.required(),
             },
           ],
