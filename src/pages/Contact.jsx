@@ -4,12 +4,14 @@ import { schoolData } from "../data/content";
 import SEO from "../components/SEO";
 import useSanityPage from "../hooks/useSanityPage";
 import useSanitySection from "../hooks/useSanitySection";
+import useSanitySettings from "../hooks/useSanitySettings";
 import PageBody from "../components/PageBody";
 import PageLoader from "../components/PageLoader";
 
 export default function Contact() {
   const page = useSanityPage("contact");
   const contactSection = useSanitySection("contact", "contact");
+  const { settings } = useSanitySettings();
 
   if (page.isLoading) return <PageLoader />;
 
@@ -52,15 +54,19 @@ export default function Contact() {
               <div className="space-y-4 text-lg">
                 <p className="flex items-start gap-3">
                   <span className="text-school-maroon">📍</span>
-                  <span>{schoolData.location}<br />{schoolData.contact.address}</span>
+                  <span>
+                    {schoolData.location}<br />
+                    {schoolData.contact.address}<br />
+                    <span className="text-sm text-gray-500 mt-1 block">Located 3km from Nambale town along Nambale-Amukura road, Busia County.</span>
+                  </span>
                 </p>
                 <p className="flex items-center gap-3">
                   <span className="text-school-maroon">📞</span>
-                  <a href={`tel:${schoolData.contact.phone}`} className="hover:text-school-maroon transition-colors">{schoolData.contact.phone}</a>
+                  <a href={`tel:${settings.phone}`} className="hover:text-school-maroon transition-colors">{settings.phone}</a>
                 </p>
                 <p className="flex items-center gap-3">
                   <span className="text-school-maroon">✉️</span>
-                  <a href={`mailto:${schoolData.contact.email}`} className="hover:text-school-maroon transition-colors">{schoolData.contact.email}</a>
+                  <a href={`mailto:${settings.email}`} className="hover:text-school-maroon transition-colors">{settings.email}</a>
                 </p>
 
                 {/* Social Media */}
