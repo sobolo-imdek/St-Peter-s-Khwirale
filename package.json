@@ -8,6 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "test:a11y": "playwright test tests/accessibility.spec.js --project=chromium",
+    "test:perf": "playwright test tests/performance.spec.js --project=chromium",
+    "test:seo": "playwright test tests/seo.spec.js --project=chromium",
+    "test:content": "playwright test tests/content.spec.js --project=chromium",
     "sanity:dev": "node node_modules/sanity/bin/sanity dev",
     "sanity:deploy": "node node_modules/sanity/bin/sanity deploy"
   },
@@ -28,7 +33,9 @@
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.60.0",
     "@tailwindcss/cli": "^4.1.18",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
@@ -39,6 +46,7 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "glob": "^13.0.0",
     "globals": "^16.5.0",
+    "lighthouse": "^12.8.2",
     "postcss": "^8.5.6",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
