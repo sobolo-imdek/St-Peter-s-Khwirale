@@ -104,7 +104,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 mt-16 pt-8 border-t border-white/10 text-center">
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-gray-300">
           © {new Date().getFullYear()} {schoolData.name} · All Rights Reserved
         </p>
       </div>

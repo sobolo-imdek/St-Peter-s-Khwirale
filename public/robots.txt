@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://st-peters-khwirale.sc.ke/sitemap.xml
