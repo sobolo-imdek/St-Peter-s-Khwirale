@@ -1,7 +1,15 @@
 import { defineConfig, devices } from "@playwright/test";
 
+// Lighthouse needs a production build and runs in its own CI step (test:lighthouse).
+// Exclude it from the default suite so `playwright test` does not skip other audits.
+const isLighthouseRun = process.argv.some((arg) =>
+  /[/\\]lighthouse\.spec\.js$/.test(arg.replace(/\\/g, "/"))
+);
+
 export default defineConfig({
   testDir: "./tests",
+  testMatch: "**/*.spec.js",
+  testIgnore: isLighthouseRun ? [] : ["**/lighthouse.spec.js"],
   timeout: 30_000,
   expect: {
     timeout: 10_000,
