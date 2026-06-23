@@ -21,6 +21,7 @@ html {
   h4,
   h5,
   h6 {
-    @apply text-school-primary font-bold;
+    @apply font-bold;
+    color: inherit;
   }
 }

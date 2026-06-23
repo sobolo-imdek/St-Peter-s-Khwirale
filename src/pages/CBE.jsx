@@ -76,7 +76,7 @@ export default function CBE() {
           {/* Sticky Navigation */}
           <aside className="lg:w-1/4">
             <div className="sticky top-28 space-y-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 px-2">
+              <h3 className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4 px-2">
                 CBE Chapters
               </h3>
               {sections.map((section) => (
@@ -178,7 +178,7 @@ export default function CBE() {
             {/*work on the text colour Here*/}
             <section id="student-life" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
-                <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
+                <span className="text-slate-200 font-bold tracking-widest uppercase text-sm">Chapter 4</span>
                 <PageBody body={studentLifeSection.body} className="mb-8 [&_h2]:!text-white [&_p]:!text-white/80" />
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="bg-white/5 p-6 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">

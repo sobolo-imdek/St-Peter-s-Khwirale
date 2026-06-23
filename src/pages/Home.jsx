@@ -253,12 +253,12 @@ export default function Home() {
                   alt="KCSE Prep"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-school-secondary text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <div className="absolute top-4 left-4 bg-white text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Academic
                 </div>
               </div>
               <div className="p-6">
-                <time className="text-sm text-gray-500 mb-2 block font-medium">January 15, 2025</time>
+                <time className="text-sm text-gray-600 mb-2 block font-medium">January 15, 2025</time>
                 <h3 className="text-xl font-bold text-school-primary mb-3 group-hover:text-school-secondary transition-colors">
                   Preparation for 2025 KCSE Exams Commences
                 </h3>
@@ -279,12 +279,12 @@ export default function Home() {
                   alt="Boarding Facilities"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-school-secondary text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <div className="absolute top-4 left-4 bg-white text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Infrastructure
                 </div>
               </div>
               <div className="p-6">
-                <time className="text-sm text-gray-500 mb-2 block font-medium">January 10, 2025</time>
+                <time className="text-sm text-gray-600 mb-2 block font-medium">January 10, 2025</time>
                 <h3 className="text-xl font-bold text-school-primary mb-3 group-hover:text-school-secondary transition-colors">
                   New Science Laboratory Commissioned
                 </h3>
@@ -305,12 +305,12 @@ export default function Home() {
                   alt="Sports Day"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 bg-school-secondary text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                <div className="absolute top-4 left-4 bg-white text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Student Life
                 </div>
               </div>
               <div className="p-6">
-                <time className="text-sm text-gray-500 mb-2 block font-medium">December 20, 2024</time>
+                <time className="text-sm text-gray-600 mb-2 block font-medium">December 20, 2024</time>
                 <h3 className="text-xl font-bold text-school-primary mb-3 group-hover:text-school-secondary transition-colors">
                   Annual Inter-House Sports Extravaganza
                 </h3>
@@ -376,7 +376,7 @@ export default function Home() {
               <details key={index} className="group bg-gray-50 rounded-2xl border border-gray-100 p-0 transition-all duration-300 open:bg-school-primary open:shadow-xl overflow-hidden">
                 <summary className="flex justify-between items-center p-6 font-bold text-lg text-school-primary group-open:text-white cursor-pointer list-none">
                   <div className="flex items-center gap-4">
-                    <span className="text-school-secondary group-open:text-school-secondary-light font-black text-2xl opacity-50">
+                    <span className="text-school-primary/50 group-open:text-white/80 font-black text-2xl">
                       {(index + 1).toString().padStart(2, '0')}
                     </span>
                     <span className="leading-tight">{faq.q}</span>
@@ -392,7 +392,7 @@ export default function Home() {
                   <div className="pt-2">
                     <Link
                       to={faq.link}
-                      className="inline-flex items-center gap-2 bg-school-secondary text-school-primary px-6 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all shadow-md group-open:shadow-none"
+                      className="inline-flex items-center gap-2 bg-white text-school-primary px-6 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all shadow-md group-open:shadow-none"
                     >
                       Visit Page <span>→</span>
                     </Link>

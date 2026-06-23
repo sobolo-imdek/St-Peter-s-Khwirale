@@ -35,7 +35,8 @@ test.describe('Lighthouse audits', () => {
   });
 
   for (const route of ROUTES_TO_AUDIT) {
-    test(`${route || '/'} meets Lighthouse score thresholds`, async ({}, testInfo) => {
+    test(`${route || '/'} meets Lighthouse score thresholds`, async ({ page }, testInfo) => {
+      void page;
       // Only run on Chromium — Lighthouse requires CDP
       test.skip(
         testInfo.project.name !== 'chromium',

@@ -20,7 +20,7 @@ export default defineConfig({
     screenshot: "only-on-failure",
   },
   webServer: {
-    command: "npm run preview -- --host localhost",
+    command: "npm run build && npm run preview -- --host localhost",
     url: "http://localhost:4173",
     reuseExistingServer: !process.env.CI,
   },

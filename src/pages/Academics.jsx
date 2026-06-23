@@ -73,7 +73,7 @@ export default function Academics() {
           {/* Sticky Navigation */}
           <aside className="lg:w-1/4">
             <div className="sticky top-28 space-y-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 px-2">
+              <h3 className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4 px-2">
                 Academics Chapters
               </h3>
               {sections.map((section) => (
@@ -158,11 +158,11 @@ export default function Academics() {
                   <div className="md:w-1/2 grid grid-cols-2 gap-4">
                     <div className="bg-gray-100 aspect-square rounded-2xl flex flex-col items-center justify-center p-4 text-center">
                       <span className="text-4xl mb-2 font-bold text-school-primary">45+</span>
-                      <span className="text-xs uppercase font-bold text-gray-500">Teachers</span>
+                      <span className="text-xs uppercase font-bold text-gray-600">Teachers</span>
                     </div>
                     <div className="bg-gray-100 aspect-square rounded-2xl flex flex-col items-center justify-center p-4 text-center">
                       <span className="text-4xl mb-2 font-bold text-school-primary">15</span>
-                      <span className="text-xs uppercase font-bold text-gray-500">Departments</span>
+                      <span className="text-xs uppercase font-bold text-gray-600">Departments</span>
                     </div>
                   </div>
                 </div>
@@ -172,23 +172,23 @@ export default function Academics() {
             {/* Performance & Results */}
             <section id="results" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
-                <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
+                <span className="text-slate-200 font-bold tracking-widest uppercase text-sm">Chapter 4</span>
                 <div className="grid md:grid-cols-2 gap-12">
                   <div className="space-y-6">
                     <PageBody body={resultsSection.body} className="[&_h2]:!text-white [&_p]:!text-white/90" />
                     <ul className="space-y-4">
                       <li className="flex items-center gap-3">
-                        <span className="text-school-secondary text-xl">🏆</span>
+                        <span className="text-slate-200 text-xl">🏆</span>
                         <span className="font-bold">2024 KCSE: 98% Transition Rate</span>
                       </li>
                       <li className="flex items-center gap-3">
-                        <span className="text-school-secondary text-xl">📈</span>
+                        <span className="text-slate-200 text-xl">📈</span>
                         <span className="font-bold">Consistently Improving Mean Grade</span>
                       </li>
                     </ul>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20">
-                    <h4 className="font-bold mb-4 uppercase text-xs tracking-widest text-school-secondary">Latest Achievement</h4>
+                    <h4 className="font-bold mb-4 uppercase text-xs tracking-widest text-slate-200">Latest Achievement</h4>
                     <p className="text-2xl font-bold italic leading-tight">
                       "Highest subject average in Mathematics & Sciences across the sub-county for two consecutive years."
                     </p>

@@ -84,7 +84,7 @@ export default function Updates() {
           {/* Sticky Navigation */}
           <aside className="lg:w-1/4">
             <div className="sticky top-28 space-y-2 bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4 px-2">
+              <h3 className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4 px-2">
                 Updates Chapters
               </h3>
               {sections.map((section) => (
@@ -154,7 +154,7 @@ export default function Updates() {
                         <img src={news.img} alt={news.title} className="w-full h-full object-cover" />
                       </div>
                       <div className="p-6">
-                        <span className="text-xs text-gray-400 font-bold uppercase">{news.date}</span>
+                        <span className="text-xs text-gray-600 font-bold uppercase">{news.date}</span>
                         <h3 className="text-xl font-bold text-school-primary mt-2 leading-tight">{news.title}</h3>
                         <p className="text-gray-600 text-sm mt-4">We are immensely proud of our students and staff for their hard work and dedication which continues to lead us to excellence...</p>
                         <button className="mt-6 text-school-secondary font-bold text-sm uppercase flex items-center gap-2 hover:gap-3 transition-all">
@@ -178,7 +178,7 @@ export default function Updates() {
                       <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-xl">📄</div>
                       <div>
                         <h4 className="font-bold text-school-primary">Tender for Construction of Staff Quarters 2026</h4>
-                        <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Ref: STPK/TN/2026/04 · Due: Dec 12, 2025</p>
+                        <p className="text-xs text-gray-600 uppercase tracking-widest mt-1">Ref: STPK/TN/2026/04 · Due: Dec 12, 2025</p>
                       </div>
                     </div>
                     <span className="text-school-secondary font-bold group-hover:scale-125 transition-transform">↓</span>
@@ -188,7 +188,7 @@ export default function Updates() {
                       <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center text-xl">✅</div>
                       <div>
                         <h4 className="font-bold text-school-primary line-through">Prequalification of Suppliers for 2025 Financial Year</h4>
-                        <p className="text-xs text-gray-500 uppercase tracking-widest mt-1">Status: Closed</p>
+                        <p className="text-xs text-gray-600 uppercase tracking-widest mt-1">Status: Closed</p>
                       </div>
                     </div>
                   </div>
@@ -199,19 +199,19 @@ export default function Updates() {
             {/* Job Vacancies */}
             <section id="careers" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
-                <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
+                <span className="text-slate-200 font-bold tracking-widest uppercase text-sm">Chapter 4</span>
                 <PageBody body={careersSection.body} className="mb-8 [&_h2]:!text-white [&_p]:!text-white/80" />
                 <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20">
-                  <h4 className="text-xl font-bold mb-4 text-school-secondary tracking-wide italic">Join our team of dedicated professionals!</h4>
+                  <h4 className="text-xl font-bold mb-4 text-slate-200 tracking-wide italic">Join our team of dedicated professionals!</h4>
                   <div className="flex flex-col md:flex-row gap-4">
                     <div className="flex-grow p-5 bg-white rounded-xl text-school-primary flex items-center justify-between hover:scale-[1.02] transition-transform cursor-pointer shadow-lg">
                       <div>
                         <h5 className="font-bold">Subject Teacher (Math/Physics)</h5>
-                        <p className="text-xs opacity-60">Full-time · Experience Required</p>
+                        <p className="text-xs text-gray-600">Full-time · Experience Required</p>
                       </div>
-                      <span className="text-school-secondary font-black">Apply</span>
+                      <span className="text-school-primary font-black">Apply</span>
                     </div>
-                    <div className="flex-grow p-5 bg-white/10 rounded-xl flex items-center justify-center border border-dashed border-white/30 text-sm font-bold opacity-60">
+                    <div className="flex-grow p-5 bg-white/10 rounded-xl flex items-center justify-center border border-dashed border-white/30 text-sm font-bold text-white/80">
                       More vacancies coming soon
                     </div>
                   </div>

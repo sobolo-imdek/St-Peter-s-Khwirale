@@ -80,7 +80,7 @@ export default function About() {
           {/* Sticky Navigation - Horizontal Scroll on Mobile, Sidebar on Desktop */}
           <aside className="lg:w-1/4 z-20 sticky top-20 lg:top-28">
             <div className="bg-white p-4 lg:p-6 rounded-2xl shadow-sm border border-gray-100 overflow-x-auto lg:overflow-visible">
-              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2 lg:mb-4 px-2 hidden lg:block">
+              <h3 className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-2 lg:mb-4 px-2 hidden lg:block">
                 Chapters
               </h3>
               <div className="flex lg:flex-col gap-2 min-w-max">
@@ -150,7 +150,7 @@ export default function About() {
                       <details key={index} className="group bg-gray-50 rounded-2xl border border-gray-100 p-0 transition-all duration-300 open:bg-school-primary open:shadow-xl overflow-hidden">
                         <summary className="flex justify-between items-center p-6 font-bold text-lg text-school-primary group-open:text-white cursor-pointer list-none">
                           <div className="flex items-center gap-4">
-                            <span className="text-school-secondary group-open:text-school-secondary-light font-black text-2xl opacity-50">
+                            <span className="text-school-primary/50 group-open:text-white/80 font-black text-2xl">
                               {(index + 1).toString().padStart(2, '0')}
                             </span>
                             <span className="leading-tight">{faq.q}</span>
@@ -166,7 +166,7 @@ export default function About() {
                           <div className="pt-2">
                             <Link
                               to={faq.link}
-                              className="inline-flex items-center gap-2 bg-school-secondary text-school-primary px-6 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all shadow-md group-open:shadow-none no-underline"
+                              className="inline-flex items-center gap-2 bg-white text-school-primary px-6 py-2 rounded-full font-bold hover:bg-white hover:scale-105 transition-all shadow-md group-open:shadow-none no-underline"
                             >
                               Visit Page <span>→</span>
                             </Link>
@@ -194,17 +194,17 @@ export default function About() {
                       <li className="pl-10 relative">
                         <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-school-primary border-4 border-white"></div>
                         <span className="block font-bold text-school-primary">2005</span>
-                        <span className="text-sm text-gray-500">School founded with 40 students.</span>
+                        <span className="text-sm text-gray-600">School founded with 40 students.</span>
                       </li>
                       <li className="pl-10 relative">
                         <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-school-secondary border-4 border-white"></div>
                         <span className="block font-bold text-school-primary">2012</span>
-                        <span className="text-sm text-gray-500">First major infrastructure expansion.</span>
+                        <span className="text-sm text-gray-600">First major infrastructure expansion.</span>
                       </li>
                       <li className="pl-10 relative">
                         <div className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-school-primary border-4 border-white"></div>
                         <span className="block font-bold text-school-primary">2020</span>
-                        <span className="text-sm text-gray-500">Recognized as Top Performer in Busia.</span>
+                        <span className="text-sm text-gray-600">Recognized as Top Performer in Busia.</span>
                       </li>
                     </ul>
                   </div>
@@ -242,7 +242,7 @@ export default function About() {
                       Through regular meetings and collaborative projects, they ensure that the parent's voice is heard and acted upon.
                     </p>
                     <div className="p-4 bg-white border border-gray-100 rounded-xl shadow-sm">
-                      <p className="text-sm italic text-gray-500">"Education is a three-legged stool: The Teacher, The Student, and The Parent."</p>
+                      <p className="text-sm italic text-gray-600">"Education is a three-legged stool: The Teacher, The Student, and The Parent."</p>
                     </div>
                   </div>
                 </div>
@@ -254,21 +254,21 @@ export default function About() {
             {/* Service Charter */}
             <section id="service-charter" className="scroll-mt-32">
               <div className="bg-school-primary text-white p-8 md:p-12 rounded-3xl shadow-xl">
-                <span className="text-school-secondary font-bold tracking-widest uppercase text-sm">Chapter 4</span>
+                <span className="text-slate-200 font-bold tracking-widest uppercase text-sm">Chapter 4</span>
                 <PageBody body={serviceCharterSection.body} className="mb-8 [&_h2]:!text-white [&_p]:!text-white/80" />
                 <div className="grid md:grid-cols-3 gap-8">
                   <div className="space-y-4">
-                    <div className="w-12 h-12 bg-school-secondary rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">01</div>
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">01</div>
                     <h4 className="font-bold">Commitment</h4>
                     <p className="text-sm opacity-80 leading-relaxed">We commit to professional, efficient, and ethical service delivery to all our stakeholders.</p>
                   </div>
                   <div className="space-y-4">
-                    <div className="w-12 h-12 bg-school-secondary rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">02</div>
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">02</div>
                     <h4 className="font-bold">Excellence</h4>
                     <p className="text-sm opacity-80 leading-relaxed">Continuous improvement of our educational standards and administrative processes.</p>
                   </div>
                   <div className="space-y-4">
-                    <div className="w-12 h-12 bg-school-secondary rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">03</div>
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-school-primary font-bold text-xl">03</div>
                     <h4 className="font-bold">Access</h4>
                     <p className="text-sm opacity-80 leading-relaxed">Providing clear communication channels for inquiries, feedback, and complaint resolution.</p>
                   </div>
@@ -295,7 +295,7 @@ export default function About() {
                     </div>
                   ))}
                   <Link to="/gallery" className="aspect-square bg-gray-100 rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-200 hover:bg-gray-50 transition-colors">
-                    <span className="text-gray-400 font-medium">+{schoolData.gallery.length - 7} More</span>
+                    <span className="text-gray-600 font-medium">+{schoolData.gallery.length - 7} More</span>
                   </Link>
                 </div>
               </div>
