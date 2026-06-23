@@ -17,6 +17,8 @@
     "test:perf": "playwright test tests/performance.spec.js --project=chromium",
     "test:seo": "playwright test tests/seo.spec.js --project=chromium",
     "test:content": "playwright test tests/content.spec.js --project=chromium",
+    "test:visual": "playwright test tests/visual.spec.js",
+    "test:resilience": "playwright test tests/resilience.spec.js --project=chromium",
     "test:lighthouse": "npm run build && playwright test tests/lighthouse.spec.js --project=chromium",
     "test:all": "npm run test:unit && npm run test:e2e",
     "sanity:dev": "node node_modules/sanity/bin/sanity dev",

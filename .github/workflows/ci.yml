@@ -50,12 +50,20 @@ jobs:
       - name: Run Playwright E2E Tests
         run: npm run test:e2e
         
-      # 9. Performance & SEO (Lighthouse)
+      # 9. Resilience & Chaos Tests
+      - name: Run Resilience Tests
+        run: npm run test:resilience
+        
+      # 10. Visual Regression Tests
+      - name: Run Visual Tests
+        run: npm run test:visual
+        
+      # 11. Performance & SEO (Lighthouse)
       # We build the app first, then run the Lighthouse audit against the build
       - name: Run Lighthouse Audits
         run: npm run test:lighthouse
 
-      # 10. Save Test Reports (Optional but very useful)
+      # 12. Save Test Reports (Optional but very useful)
       # If tests fail, you can download this report from GitHub to see exactly what went wrong.
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
