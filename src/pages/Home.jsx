@@ -213,6 +213,7 @@ export default function Home() {
                   alt={typeof img === 'string' ? `School gallery preview ${index + 1}` : img.alt}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -252,6 +253,7 @@ export default function Home() {
                   src="/images/hero/hero2.webp"
                   alt="KCSE Prep"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4 bg-white text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Academic
@@ -278,6 +280,7 @@ export default function Home() {
                   src="/images/hero/hero1.webp"
                   alt="Boarding Facilities"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4 bg-white text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Infrastructure
@@ -304,6 +307,7 @@ export default function Home() {
                   src="/images/hero/hero3.webp"
                   alt="Sports Day"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4 bg-white text-school-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                   Student Life
@@ -430,6 +434,7 @@ export default function Home() {
                   alt="Ministry of Education"
                   className="h-full w-auto object-contain"
                   loading="lazy"
+                  loading="lazy"
                   onError={(e) => { e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Coat_of_arms_of_Kenya_%28Official%29.svg/200px-Coat_of_arms_of_Kenya_%28Official%29.svg.png"; }}
                 />
               </div>
@@ -439,6 +444,7 @@ export default function Home() {
                   src="/images/partners/knec.webp"
                   alt="KNEC"
                   className="h-full w-auto object-contain"
+                  loading="lazy"
                   onError={(e) => { e.target.src = "https://www.knec.ac.ke/wp-content/uploads/2021/07/knec-logo.png"; }}
                 />
               </div>
@@ -448,6 +454,7 @@ export default function Home() {
                   src="/images/partners/tsc.webp"
                   alt="TSC Logo"
                   className="h-full w-auto object-contain"
+                  loading="lazy"
                   onError={(e) => { e.target.src = "https://www.tsc.go.ke/images/logo.png"; }}
                 />
               </div>
@@ -457,6 +464,7 @@ export default function Home() {
                   src="/images/partners/kicd.webp"
                   alt="KICD"
                   className="h-full w-auto object-contain"
+                  loading="lazy"
                   onError={(e) => { e.target.src = "https://kicd.ac.ke/wp-content/uploads/2017/10/kicd-logo.png"; }}
                 />
               </div>

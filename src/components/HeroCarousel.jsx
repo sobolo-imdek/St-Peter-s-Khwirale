@@ -1,6 +1,14 @@
 
 import { useCallback, useEffect, useState } from "react";
 
+function imageSrc(img) {
+  return typeof img === "string" ? img : img.src;
+}
+
+function imageAlt(img, index) {
+  return typeof img === "string" ? `Hero ${index + 1}` : img.alt;
+}
+
 export default function HeroCarousel({
     images = [],
     autoSlide = true,
@@ -20,32 +28,33 @@ export default function HeroCarousel({
         return () => clearInterval(slideInterval);
     }, [autoSlide, autoSlideInterval, images.length, next]);
 
+    useEffect(() => {
+        if (images.length <= 1) return;
+        const nextIndex = (curr + 1) % images.length;
+        const preload = new Image();
+        preload.src = imageSrc(images[nextIndex]);
+    }, [curr, images]);
+
     if (images.length === 0) return null;
+
+    const activeSrc = imageSrc(images[curr]);
+    const activeAlt = imageAlt(images[curr], curr);
 
     return (
         <div className="absolute inset-0 overflow-hidden">
-            {/* Image Strip */}
-            <div
-                className="flex transition-transform duration-700 ease-out h-full"
-                style={{ transform: `translateX(-${curr * 100}%)` }}
-            >
-                {images.map((img, i) => (
-                    <div key={`${typeof img === 'string' ? img : img.src}-${i}`} className="min-w-full h-full relative">
-                        <img
-                            src={typeof img === 'string' ? img : img.src}
-                            alt={typeof img === 'string' ? `Hero ${i + 1}` : img.alt}
-                            className="w-full h-full object-cover object-[center_35%]"
-                            loading={i === 0 ? "eager" : "lazy"}
-                        />
-                        {/* Cinematic gradient overlay for text readability - darker on mobile */}
-                        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 md:via-black/20 to-transparent" />
-                    </div>
-                ))}
-            </div>
+            <img
+                key={activeSrc}
+                src={activeSrc}
+                alt={activeAlt}
+                className="w-full h-full object-cover object-[center_35%]"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 md:via-black/20 to-transparent" />
 
             {/* Controls */}
             <div className="absolute inset-0 flex items-center justify-between px-2 md:px-0 z-40 pointer-events-none">
-                {/* Buttons need pointer-events-auto */}
                 <button
                     onClick={prev}
                     className="pointer-events-auto p-1 md:p-2 text-white/60 hover:text-white transition-all hover:scale-110 active:scale-90"
