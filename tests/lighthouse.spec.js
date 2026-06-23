@@ -15,7 +15,7 @@
  *  - SEO           ≥ 90
  */
 import { test, expect } from '@playwright/test';
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 
@@ -35,7 +35,7 @@ test.describe('Lighthouse audits', () => {
   });
 
   for (const route of ROUTES_TO_AUDIT) {
-    test(`${route || '/'} meets Lighthouse score thresholds`, async ({ page }, testInfo) => {
+    test(`${route || '/'} meets Lighthouse score thresholds`, async (fixtures, testInfo) => {
       // Only run on Chromium — Lighthouse requires CDP
       test.skip(
         testInfo.project.name !== 'chromium',
