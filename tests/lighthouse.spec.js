@@ -15,7 +15,7 @@
  *  - SEO           ≥ 90
  */
 import { test, expect } from '@playwright/test';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 
@@ -65,9 +65,11 @@ test.describe('Lighthouse audits', () => {
         if (!err.stdout && !err.stderr) throw err;
       }
 
-      const reportJson = JSON.parse(
-        execSync(`type "${reportPath}"`, { encoding: 'utf8', shell: true }).trim()
-      );
+      if (!existsSync(reportPath)) {
+        throw new Error(`Lighthouse report not found at ${reportPath}`);
+      }
+
+      const reportJson = JSON.parse(readFileSync(reportPath, 'utf8'));
 
       const scores = {};
       const categories = reportJson?.lhr?.categories || reportJson?.categories || {};
