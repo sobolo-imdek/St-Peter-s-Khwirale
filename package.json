@@ -26,18 +26,18 @@
   },
   "dependencies": {
     "@portabletext/react": "^6.2.0",
+    "@sanity/cli": "^5.14.1",
     "@sanity/client": "^7.22.0",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.25.0",
     "buffer": "^6.0.3",
-    "gray-matter": "^4.0.3",
+    "dompurify": "^3.4.11",
+    "markdown-it": "^14.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-helmet-async": "^2.0.5",
-    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.11.0",
-    "remark-gfm": "^4.0.1",
-    "sanity": "^5.25.0",
+    "sanity": "^5.14.1",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
@@ -60,12 +60,12 @@
     "glob": "^13.0.0",
     "globals": "^16.5.0",
     "jsdom": "^29.1.1",
-    "lighthouse": "^12.8.2",
+    "lighthouse": "^12.6.1",
     "msw": "^2.14.6",
     "postcss": "^8.5.6",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.19",
-    "vite": "^7.2.4",
+    "vite": "^8.1.0",
     "vitest": "^4.1.9"
   }
 }
