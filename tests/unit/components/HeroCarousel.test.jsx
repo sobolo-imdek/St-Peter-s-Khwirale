@@ -25,12 +25,12 @@ describe('HeroCarousel', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('renders all slide images', () => {
+  it('renders only the active slide image', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
     const imgs = screen.getAllByRole('img');
-    expect(imgs).toHaveLength(3);
+    expect(imgs).toHaveLength(1);
     expect(imgs[0]).toHaveAttribute('alt', 'Slide One');
-    expect(imgs[1]).toHaveAttribute('alt', 'Slide Two');
+    expect(imgs[0]).toHaveAttribute('src', '/img1.jpg');
   });
 
   it('renders dot indicators for each slide', () => {
@@ -45,86 +45,80 @@ describe('HeroCarousel', () => {
     expect(screen.getByRole('button', { name: /next slide/i })).toBeInTheDocument();
   });
 
-  it('first image has loading="eager" and subsequent images have loading="lazy"', () => {
+  it('active image loads eagerly with high fetch priority', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
-    const imgs = screen.getAllByRole('img');
-    expect(imgs[0]).toHaveAttribute('loading', 'eager');
-    expect(imgs[1]).toHaveAttribute('loading', 'lazy');
-    expect(imgs[2]).toHaveAttribute('loading', 'lazy');
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('loading', 'eager');
+    expect(img).toHaveAttribute('fetchpriority', 'high');
   });
 
   it('advances to the next slide when Next button is clicked', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
-    const strip = document.querySelector('[style]');
-    expect(strip?.style.transform).toBe('translateX(-0%)');
-
     fireEvent.click(screen.getByRole('button', { name: /next slide/i }));
-    expect(strip?.style.transform).toBe('translateX(-100%)');
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', '/img2.jpg');
+    expect(img).toHaveAttribute('alt', 'Slide Two');
   });
 
   it('goes to the previous slide when Previous button is clicked', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
-    // Click next once first
     fireEvent.click(screen.getByRole('button', { name: /next slide/i }));
     fireEvent.click(screen.getByRole('button', { name: /previous slide/i }));
-    const strip = document.querySelector('[style]');
-    expect(strip?.style.transform).toBe('translateX(-0%)');
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', '/img1.jpg');
   });
 
   it('wraps around from last slide back to first on Next click', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
     const next = screen.getByRole('button', { name: /next slide/i });
-    fireEvent.click(next); // → slide 2
-    fireEvent.click(next); // → slide 3
-    fireEvent.click(next); // → wraps to slide 1
-    const strip = document.querySelector('[style]');
-    expect(strip?.style.transform).toBe('translateX(-0%)');
+    fireEvent.click(next);
+    fireEvent.click(next);
+    fireEvent.click(next);
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', '/img1.jpg');
   });
 
   it('wraps around from first slide to last on Previous click', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
     fireEvent.click(screen.getByRole('button', { name: /previous slide/i }));
-    const strip = document.querySelector('[style]');
-    expect(strip?.style.transform).toBe('translateX(-200%)');
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', '/img3.jpg');
   });
 
   it('jumps directly to a slide when a dot indicator is clicked', () => {
     render(<HeroCarousel images={images} autoSlide={false} />);
     fireEvent.click(screen.getByRole('button', { name: /go to slide 3/i }));
-    const strip = document.querySelector('[style]');
-    expect(strip?.style.transform).toBe('translateX(-200%)');
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', '/img3.jpg');
   });
 
   it('auto-advances slides on the configured interval', () => {
     render(<HeroCarousel images={images} autoSlide autoSlideInterval={3000} />);
-    const strip = document.querySelector('[style]');
-    expect(strip?.style.transform).toBe('translateX(-0%)');
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/img1.jpg');
 
     act(() => vi.advanceTimersByTime(3000));
-    expect(strip?.style.transform).toBe('translateX(-100%)');
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/img2.jpg');
 
     act(() => vi.advanceTimersByTime(3000));
-    expect(strip?.style.transform).toBe('translateX(-200%)');
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/img3.jpg');
   });
 
   it('does not auto-advance when autoSlide is false', () => {
     render(<HeroCarousel images={images} autoSlide={false} autoSlideInterval={1000} />);
-    const strip = document.querySelector('[style]');
     act(() => vi.advanceTimersByTime(5000));
-    expect(strip?.style.transform).toBe('translateX(-0%)');
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/img1.jpg');
   });
 
   it('does not auto-advance when only one image is provided', () => {
     render(<HeroCarousel images={[images[0]]} autoSlide autoSlideInterval={1000} />);
-    const strip = document.querySelector('[style]');
     act(() => vi.advanceTimersByTime(3000));
-    expect(strip?.style.transform).toBe('translateX(-0%)');
+    expect(screen.getByRole('img')).toHaveAttribute('src', '/img1.jpg');
   });
 
   it('accepts plain string image sources', () => {
     render(<HeroCarousel images={['/simple.jpg', '/simple2.jpg']} autoSlide={false} />);
-    const imgs = screen.getAllByRole('img');
-    expect(imgs[0]).toHaveAttribute('src', '/simple.jpg');
-    expect(imgs[0]).toHaveAttribute('alt', 'Hero 1');
+    const img = screen.getByRole('img');
+    expect(img).toHaveAttribute('src', '/simple.jpg');
+    expect(img).toHaveAttribute('alt', 'Hero 1');
   });
 });
