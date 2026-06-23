@@ -1,0 +1,66 @@
+name: Continuous Integration (CI)
+
+# This pipeline runs automatically every time you push code to the 'main' branch
+# or when you create a Pull Request against the 'main' branch.
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-and-audit:
+    name: Build, Audit & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the code from the repository
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Use a stable Node version
+          cache: 'npm'       # Speeds up installation by caching dependencies
+
+      # 3. Install all project dependencies
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. Security Check: High-level Audit
+      # This will fail the pipeline if any "high" or "critical" vulnerabilities are found in your packages.
+      - name: Security Audit
+        run: npm audit --audit-level=high
+
+      # 5. Linting Check (Code Quality)
+      - name: Run Linter
+        run: npm run lint
+
+      # 6. Unit & Integration Tests (Vitest)
+      - name: Run Unit Tests
+        run: npm run test:unit
+
+      # 7. Install Playwright Browsers (for E2E and Lighthouse tests)
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      # 8. End-to-End Tests
+      - name: Run Playwright E2E Tests
+        run: npm run test:e2e
+        
+      # 9. Performance & SEO (Lighthouse)
+      # We build the app first, then run the Lighthouse audit against the build
+      - name: Run Lighthouse Audits
+        run: npm run test:lighthouse
+
+      # 10. Save Test Reports (Optional but very useful)
+      # If tests fail, you can download this report from GitHub to see exactly what went wrong.
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always() # Upload report even if the tests fail
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
