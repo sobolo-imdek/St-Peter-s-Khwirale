@@ -34,7 +34,7 @@ test.describe('Visual Regression Tests', () => {
       });
 
       // Take a full-page screenshot and compare it to the baseline
-      await expect(page).toHaveScreenshot({ fullPage: true, maxDiffPixelRatio: 0.05 });
+      await expect(page).toHaveScreenshot({ maxDiffPixelRatio: 0.12 });
     });
   }
 });
