@@ -44,7 +44,7 @@ jobs:
 
       # 7. Install Playwright Browsers (for E2E and Lighthouse tests)
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install --with-deps
 
       # 8. End-to-End Tests
       - name: Run Playwright E2E Tests
